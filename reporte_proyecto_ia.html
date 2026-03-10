@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema IA de QA Automatizado — División Informática | Loan Software</title>
+  <link rel="stylesheet" href="reporte_proyecto_ia.css" />
+  <!-- Favicon: AI / neural network icon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23303689'/%3E%3Cstop offset='100%25' stop-color='%235B247A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='8' cy='16' r='2.5' fill='rgba(255,255,255,0.9)'/%3E%3Ccircle cx='16' cy='8' r='2.5' fill='rgba(255,255,255,0.9)'/%3E%3Ccircle cx='16' cy='24' r='2.5' fill='rgba(255,255,255,0.9)'/%3E%3Ccircle cx='24' cy='16' r='2.5' fill='rgba(255,255,255,0.9)'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='white'/%3E%3Cline x1='8' y1='16' x2='16' y2='16' stroke='rgba(255,255,255,0.6)' stroke-width='1.4'/%3E%3Cline x1='16' y1='8' x2='16' y2='16' stroke='rgba(255,255,255,0.6)' stroke-width='1.4'/%3E%3Cline x1='16' y1='16' x2='16' y2='24' stroke='rgba(255,255,255,0.6)' stroke-width='1.4'/%3E%3Cline x1='16' y1='16' x2='24' y2='16' stroke='rgba(255,255,255,0.6)' stroke-width='1.4'/%3E%3Cline x1='8' y1='16' x2='16' y2='8' stroke='rgba(255,255,255,0.3)' stroke-width='1'/%3E%3Cline x1='8' y1='16' x2='16' y2='24' stroke='rgba(255,255,255,0.3)' stroke-width='1'/%3E%3Cline x1='16' y1='8' x2='24' y2='16' stroke='rgba(255,255,255,0.3)' stroke-width='1'/%3E%3Cline x1='16' y1='24' x2='24' y2='16' stroke='rgba(255,255,255,0.3)' stroke-width='1'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<div class="presentation">
+
+  <!-- ─────────────────── HEADER ─────────────────── -->
+  <header class="pres-header">
+    <div class="logo-wrap">
+      <!-- Logo: División Informática -->
+      <img src="logo.png" alt="División Informática" class="logo-icon-svg" />
+      <div class="logo-text-group">
+        <span class="logo-company">División Informática</span>
+        <span class="logo-loan">LOAN</span>
+        <span class="logo-software">SOFTWARE</span>
+      </div>
+    </div>
+
+    <div class="pres-context-badge">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <circle cx="6.5" cy="6.5" r="2.5" fill="#636ACE"/>
+        <circle cx="2" cy="6.5" r="1.5" fill="#BEC4FF"/>
+        <circle cx="11" cy="6.5" r="1.5" fill="#BEC4FF"/>
+        <circle cx="6.5" cy="2" r="1.5" fill="#BEC4FF"/>
+        <circle cx="6.5" cy="11" r="1.5" fill="#BEC4FF"/>
+        <line x1="2" y1="6.5" x2="6.5" y2="6.5" stroke="#636ACE" stroke-width="0.8"/>
+        <line x1="6.5" y1="2" x2="6.5" y2="6.5" stroke="#636ACE" stroke-width="0.8"/>
+        <line x1="6.5" y1="6.5" x2="11" y2="6.5" stroke="#636ACE" stroke-width="0.8"/>
+        <line x1="6.5" y1="6.5" x2="6.5" y2="11" stroke="#636ACE" stroke-width="0.8"/>
+      </svg>
+      Proyecto IA · Generación QA con IA
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="header-right-group">
+      <a href="qa_reports_portal.html" class="back-to-portal-btn" title="Volver al portal de reportes">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Portal QA
+      </a>
+      <div class="slide-counter">
+        <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">13</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─────────────────── SLIDES ─────────────────── -->
+  <main class="slides-container" id="slidesContainer">
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 1 — PORTADA
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-gradient active" data-slide="1">
+      <div class="cover-bg-circles">
+        <div class="cover-circle cover-circle-1"></div>
+        <div class="cover-circle cover-circle-2"></div>
+        <div class="cover-circle cover-circle-3"></div>
+      </div>
+      <div class="cover-content">
+        <div class="cover-badge">
+          <span class="cover-badge-dot"></span>
+          <span class="cover-badge-text">División Informática · Innovación IA · 2026</span>
+        </div>
+        <h1 class="cover-title">
+          Generación Automática de<br/>
+          <em>Artefactos QA con IA</em>
+        </h1>
+        <p class="cover-subtitle">
+          Un sistema inteligente que transforma documentos funcionales en casos de prueba estructurados y código de automatización, impulsando la eficiencia del equipo de calidad.
+        </p>
+        <div class="cover-meta">
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Producto</span>
+            <span class="cover-meta-value">Loan Software</span>
+          </div>
+          <div class="cover-divider"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Área</span>
+            <span class="cover-meta-value">QA &amp; Automatización</span>
+          </div>
+          <div class="cover-divider"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Tecnología</span>
+            <span class="cover-meta-value">Inteligencia Artificial</span>
+          </div>
+          <div class="cover-divider"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Año</span>
+            <span class="cover-meta-value">2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 2 — PROBLEMA
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-blue-deep" data-slide="2">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag" style="background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.75);">El Desafío</span>
+          <h2 class="slide-h1 white">El problema que <span style="color:#BEC4FF;">debemos resolver</span></h2>
+          <p class="slide-lead white">El proceso actual de generación de artefactos QA presenta múltiples fricciones que impactan la velocidad y calidad de entrega.</p>
+        </div>
+        <div class="problem-grid slide-content-anim">
+          <div class="problem-card stagger-item">
+            <div class="problem-card-icon">⏳</div>
+            <div class="problem-card-title">Alto tiempo manual</div>
+            <div class="problem-card-desc">Crear casos de prueba a partir de un DCR requiere horas de análisis, redacción y estructuración manual por parte del equipo de QA.</div>
+          </div>
+          <div class="problem-card stagger-item">
+            <div class="problem-card-icon">⚠️</div>
+            <div class="problem-card-title">Inconsistencia en la cobertura</div>
+            <div class="problem-card-desc">Cada analista interpreta el documento de forma diferente, generando gaps en la cobertura de pruebas y escenarios no contemplados.</div>
+          </div>
+          <div class="problem-card stagger-item">
+            <div class="problem-card-icon">🔄</div>
+            <div class="problem-card-title">Trabajo repetitivo y propenso a errores</div>
+            <div class="problem-card-desc">La transformación de requerimientos a código de automatización es un proceso repetitivo que consume tiempo valioso del equipo técnico.</div>
+          </div>
+          <div class="problem-card stagger-item">
+            <div class="problem-card-icon">🐌</div>
+            <div class="problem-card-title">Ciclos de entrega más lentos</div>
+            <div class="problem-card-desc">El bottleneck en la preparación de QA retrasa el ciclo de validación, impactando los tiempos de release del producto Loan Software.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 3 — SOLUCIÓN GENERAL
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-light" data-slide="3">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag">La Solución</span>
+          <h2 class="slide-h1">Descripción general del <span>sistema</span></h2>
+        </div>
+        <div class="solution-layout slide-content-anim">
+          <div class="solution-left">
+            <h2>Un pipeline de <span>IA multiagente</span> que trabaja por vos</h2>
+            <div class="solution-pillars">
+              <div class="pillar stagger-item">
+                <div class="pillar-icon" style="background:var(--brand-blue-100);">🧠</div>
+                <div class="pillar-text">
+                  <h4>Comprensión inteligente</h4>
+                  <p>El sistema lee y comprende el DCR en lenguaje natural, identificando requerimientos, actores y flujos de negocio.</p>
+                </div>
+              </div>
+              <div class="pillar stagger-item">
+                <div class="pillar-icon" style="background:var(--brand-purple-100);">⚙️</div>
+                <div class="pillar-text">
+                  <h4>Orquestación automática</h4>
+                  <p>Un orquestador coordina múltiples agentes especializados que trabajan en paralelo para maximizar la eficiencia.</p>
+                </div>
+              </div>
+              <div class="pillar stagger-item">
+                <div class="pillar-icon" style="background:var(--success-100);">📦</div>
+                <div class="pillar-text">
+                  <h4>Artefactos listos para usar</h4>
+                  <p>El output son archivos reales: Excel con casos de prueba estructurados y clases Java de automatización.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="solution-visual">
+            <div class="solution-stat-card">
+              <div class="solution-stat-number">80%</div>
+              <div class="solution-stat-label">Reducción del tiempo de preparación de QA</div>
+            </div>
+            <div class="solution-stats-row">
+              <div class="solution-mini-stat">
+                <div class="solution-mini-number">3x</div>
+                <div class="solution-mini-label">más rápido en testing</div>
+              </div>
+              <div class="solution-mini-stat">
+                <div class="solution-mini-number">100%</div>
+                <div class="solution-mini-label">cobertura del DCR</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 4 — ARQUITECTURA
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-white" data-slide="4">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag purple">Arquitectura</span>
+          <h2 class="slide-h1">Cómo está <span>construido</span> el sistema</h2>
+          <p class="slide-lead">La solución utiliza una arquitectura de IA multiagente donde cada componente tiene una responsabilidad específica.</p>
+        </div>
+        <div class="arch-diagram slide-content-anim">
+
+          <!-- INPUT -->
+          <div class="arch-node stagger-item">
+            <div class="arch-box arch-box-input">
+              <span class="arch-box-icon">📄</span>
+              <span class="arch-box-title">DCR.md</span>
+              <span class="arch-box-sub">Documento funcional</span>
+            </div>
+            <span class="arch-label">INPUT</span>
+          </div>
+
+          <!-- ARROW -->
+          <div class="arch-arrow">
+            <svg width="36" height="24" viewBox="0 0 36 24" fill="none">
+              <line x1="0" y1="12" x2="28" y2="12" stroke="#636ACE" stroke-width="2" stroke-dasharray="4 3"/>
+              <polygon points="28,6 36,12 28,18" fill="#636ACE"/>
+            </svg>
+          </div>
+
+          <!-- ORCHESTRATOR -->
+          <div class="arch-node stagger-item">
+            <div class="arch-box arch-box-orchestrator">
+              <span class="arch-box-icon">🎯</span>
+              <span class="arch-box-title">Orquestador</span>
+              <span class="arch-box-sub">Coordinación central</span>
+            </div>
+            <span class="arch-label" style="color:#fff; background:var(--brand-blue-700); padding:2px 10px; border-radius:99px;">CONTROL</span>
+          </div>
+
+          <!-- DOUBLE ARROW -->
+          <div class="arch-double-arrow">
+            <svg width="36" height="24" viewBox="0 0 36 24" fill="none">
+              <line x1="0" y1="12" x2="28" y2="12" stroke="#AB61D0" stroke-width="2" stroke-dasharray="4 3"/>
+              <polygon points="28,6 36,12 28,18" fill="#AB61D0"/>
+            </svg>
+            <svg width="36" height="24" viewBox="0 0 36 24" fill="none" style="transform:scaleX(-1)">
+              <line x1="0" y1="12" x2="28" y2="12" stroke="#AB61D0" stroke-width="2" stroke-dasharray="4 3"/>
+              <polygon points="28,6 36,12 28,18" fill="#AB61D0"/>
+            </svg>
+          </div>
+
+          <!-- AGENTS + SKILLS -->
+          <div class="arch-node stagger-item" style="min-width:280px;">
+            <div class="arch-agents-skills">
+              <div class="arch-agents-row">
+                <div class="arch-box arch-box-agent">
+                  <span class="arch-box-icon" style="font-size:18px;">🔍</span>
+                  <span class="arch-box-title" style="font-size:11px;">Agente Analizador</span>
+                </div>
+                <div class="arch-box arch-box-agent">
+                  <span class="arch-box-icon" style="font-size:18px;">📝</span>
+                  <span class="arch-box-title" style="font-size:11px;">Agente Generador</span>
+                </div>
+                <div class="arch-box arch-box-agent">
+                  <span class="arch-box-icon" style="font-size:18px;">⚡</span>
+                  <span class="arch-box-title" style="font-size:11px;">Agente Automator</span>
+                </div>
+              </div>
+              <div class="arch-agents-row">
+                <div class="arch-box arch-box-skill">
+                  <span class="arch-box-icon" style="font-size:15px;">🧩</span>
+                  <span class="arch-box-title" style="font-size:10px;">Skill Interpreta</span>
+                </div>
+                <div class="arch-box arch-box-skill">
+                  <span class="arch-box-icon" style="font-size:15px;">🎯</span>
+                  <span class="arch-box-title" style="font-size:10px;">Skill Escenarios</span>
+                </div>
+                <div class="arch-box arch-box-skill">
+                  <span class="arch-box-icon" style="font-size:15px;">🏗️</span>
+                  <span class="arch-box-title" style="font-size:10px;">Skill Genera</span>
+                </div>
+                <div class="arch-box arch-box-skill">
+                  <span class="arch-box-icon" style="font-size:15px;">💻</span>
+                  <span class="arch-box-title" style="font-size:10px;">Skill Código</span>
+                </div>
+              </div>
+            </div>
+            <span class="arch-label">AGENTES + SKILLS</span>
+          </div>
+
+          <!-- ARROW -->
+          <div class="arch-arrow">
+            <svg width="36" height="24" viewBox="0 0 36 24" fill="none">
+              <line x1="0" y1="12" x2="28" y2="12" stroke="#FDB022" stroke-width="2" stroke-dasharray="4 3"/>
+              <polygon points="28,6 36,12 28,18" fill="#FDB022"/>
+            </svg>
+          </div>
+
+          <!-- OUTPUT -->
+          <div class="arch-node stagger-item" style="min-width:160px;">
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+              <div class="arch-box arch-box-output" style="width:130px;height:70px;">
+                <span class="arch-box-icon" style="font-size:18px;">📊</span>
+                <span class="arch-box-title" style="font-size:11px;">Excel · Test Cases</span>
+              </div>
+              <div class="arch-box arch-box-output" style="width:130px;height:70px;">
+                <span class="arch-box-icon" style="font-size:18px;">☕</span>
+                <span class="arch-box-title" style="font-size:11px;">Java · Automation</span>
+              </div>
+            </div>
+            <span class="arch-label">OUTPUT</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 5 — INPUT DCR
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-light" data-slide="5">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag">Input del Sistema</span>
+          <h2 class="slide-h1">El <span>DCR</span>: punto de partida de todo</h2>
+          <p class="slide-lead">El Documento de Cambio/Requerimiento (DCR) es el insumo principal que el sistema consume para generar todos los artefactos de calidad.</p>
+        </div>
+        <div class="dcr-layout slide-content-anim">
+          <div class="dcr-doc-visual">
+            <div class="dcr-doc-header">
+              <span style="font-size:18px;">📄</span>
+              <span class="dcr-doc-header-title">dcr.md — Documento de Cambio/Requerimiento</span>
+              <span class="dcr-doc-header-sub">Análisis Funcional</span>
+            </div>
+            <div class="dcr-doc-body">
+              <div class="dcr-section">
+                <span class="dcr-section-label">📌 Descripción del cambio</span>
+                <div class="dcr-section-bar"><div class="dcr-section-bar-fill blue" style="width:85%"></div></div>
+                <div class="dcr-lines">
+                  <div class="dcr-line" style="width:100%"></div>
+                  <div class="dcr-line" style="width:75%"></div>
+                  <div class="dcr-line" style="width:90%"></div>
+                </div>
+              </div>
+              <div class="dcr-section">
+                <span class="dcr-section-label">🎯 Requerimientos funcionales</span>
+                <div class="dcr-section-bar"><div class="dcr-section-bar-fill purple" style="width:70%"></div></div>
+                <div class="dcr-lines">
+                  <div class="dcr-line" style="width:95%"></div>
+                  <div class="dcr-line" style="width:60%"></div>
+                </div>
+              </div>
+              <div class="dcr-section">
+                <span class="dcr-section-label">✅ Criterios de aceptación</span>
+                <div class="dcr-section-bar"><div class="dcr-section-bar-fill success" style="width:92%"></div></div>
+                <div class="dcr-lines">
+                  <div class="dcr-line" style="width:80%"></div>
+                  <div class="dcr-line" style="width:100%"></div>
+                  <div class="dcr-line" style="width:50%"></div>
+                </div>
+              </div>
+              <div class="dcr-section">
+                <span class="dcr-section-label">⚠️ Consideraciones especiales</span>
+                <div class="dcr-section-bar"><div class="dcr-section-bar-fill warning" style="width:55%"></div></div>
+                <div class="dcr-lines">
+                  <div class="dcr-line" style="width:70%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dcr-right">
+            <div class="dcr-detail-card stagger-item">
+              <span class="dcr-detail-icon">👥</span>
+              <div>
+                <div class="dcr-detail-title">Creado por el equipo de Análisis Funcional</div>
+                <div class="dcr-detail-desc">El DCR es producido por el área de AF que describe en lenguaje de negocio todos los cambios, reglas y validaciones del sistema.</div>
+              </div>
+            </div>
+            <div class="dcr-detail-card stagger-item">
+              <span class="dcr-detail-icon">📝</span>
+              <div>
+                <div class="dcr-detail-title">Formato Markdown estructurado</div>
+                <div class="dcr-detail-desc">El archivo <code style="background:var(--grey-100);padding:1px 5px;border-radius:4px;font-family:monospace;font-size:12px;">dcr.md</code> utiliza formato Markdown, facilitando su procesamiento automatizado y la extracción de información semántica.</div>
+              </div>
+            </div>
+            <div class="dcr-detail-card stagger-item">
+              <span class="dcr-detail-icon">🔗</span>
+              <div>
+                <div class="dcr-detail-title">Contiene toda la información necesaria</div>
+                <div class="dcr-detail-desc">Incluye descripción del cambio, requerimientos funcionales, flujos de usuario, criterios de aceptación y restricciones del negocio.</div>
+              </div>
+            </div>
+            <div class="dcr-detail-card stagger-item">
+              <span class="dcr-detail-icon">🚀</span>
+              <div>
+                <div class="dcr-detail-title">Un solo archivo, múltiples artefactos</div>
+                <div class="dcr-detail-desc">A partir de este único documento, el sistema genera automáticamente tanto los casos de prueba como el código de automatización.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 6 — AGENTES
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-light" data-slide="6">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag purple">Agentes IA</span>
+          <h2 class="slide-h1">Los <span>agentes</span> que hacen el trabajo</h2>
+          <p class="slide-lead">Cada agente es una unidad inteligente especializada en una tarea específica del proceso de generación de QA.</p>
+        </div>
+        <div class="agents-grid slide-content-anim">
+
+          <div class="agent-card stagger-item">
+            <span class="agent-number">#01</span>
+            <div class="agent-icon-box" style="background:var(--info-100);">🔍</div>
+            <div class="agent-name">Agente Analizador de Requerimientos</div>
+            <div class="agent-desc">
+              Lee e interpreta el DCR completo. Identifica actores del sistema, flujos de negocio, reglas de validación, módulos impactados (Operaciones, Cobranza, Facturación) y pre/post condiciones de cada requerimiento.
+            </div>
+            <div class="agent-skills-used">
+              <span class="skill-chip">Skill Interpretación</span>
+              <span class="skill-chip purple">NLP Análisis</span>
+            </div>
+          </div>
+
+          <div class="agent-card stagger-item">
+            <span class="agent-number">#02</span>
+            <div class="agent-icon-box" style="background:var(--brand-purple-100);">📝</div>
+            <div class="agent-name">Agente Generador de Casos de Prueba</div>
+            <div class="agent-desc">
+              Transforma los requerimientos analizados en casos de prueba estructurados: escenarios positivos y negativos, datos de entrada/salida, condiciones de borde y criterios de aceptación verificables.
+            </div>
+            <div class="agent-skills-used">
+              <span class="skill-chip purple">Skill Escenarios</span>
+              <span class="skill-chip success">Skill Generación</span>
+            </div>
+          </div>
+
+          <div class="agent-card stagger-item">
+            <span class="agent-number">#03</span>
+            <div class="agent-icon-box" style="background:var(--warning-100);">⚡</div>
+            <div class="agent-name">Agente de Automatización</div>
+            <div class="agent-desc">
+              Convierte los casos de prueba en clases Java funcionales, utilizando el framework de automatización existente (Playwright/Selenium, TestNG, Allure). Genera código listo para ejecutar en el proyecto <em>loan-auto-tests</em>.
+            </div>
+            <div class="agent-skills-used">
+              <span class="skill-chip success">Skill Código Java</span>
+              <span class="skill-chip">Framework Integration</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 7 — SKILLS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-white" data-slide="7">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag success">Skills</span>
+          <h2 class="slide-h1">Las <span>capacidades</span> especializadas</h2>
+          <p class="slide-lead">Los skills son módulos de capacidad que los agentes utilizan para ejecutar tareas específicas de forma reutilizable.</p>
+        </div>
+        <div class="skills-layout slide-content-anim">
+          <div class="skills-list">
+
+            <div class="skill-row stagger-item">
+              <div class="skill-row-icon" style="background:var(--info-100);">🧠</div>
+              <div>
+                <div class="skill-row-name">Interpretación de Requerimientos</div>
+                <div class="skill-row-desc">Analiza texto en lenguaje natural del DCR y extrae entidades, acciones, condiciones y restricciones de negocio de forma estructurada.</div>
+              </div>
+              <span class="skill-row-badge">NLP</span>
+            </div>
+
+            <div class="skill-row stagger-item">
+              <div class="skill-row-icon" style="background:var(--brand-purple-100);">🎯</div>
+              <div>
+                <div class="skill-row-name">Identificación de Escenarios</div>
+                <div class="skill-row-desc">Genera la matriz de escenarios de prueba: flujo principal, flujos alternativos, flujos de error y condiciones de borde para cada requerimiento.</div>
+              </div>
+              <span class="skill-row-badge">Test Design</span>
+            </div>
+
+            <div class="skill-row stagger-item">
+              <div class="skill-row-icon" style="background:var(--success-100);">📊</div>
+              <div>
+                <div class="skill-row-name">Generación de Casos de Prueba</div>
+                <div class="skill-row-desc">Estructura casos de prueba en formato Excel estándar: ID, título, precondición, pasos, datos de entrada, resultado esperado y prioridad.</div>
+              </div>
+              <span class="skill-row-badge">Excel Output</span>
+            </div>
+
+            <div class="skill-row stagger-item">
+              <div class="skill-row-icon" style="background:var(--warning-100);">💻</div>
+              <div>
+                <div class="skill-row-name">Generación de Código de Automatización</div>
+                <div class="skill-row-desc">Produce clases Java para el framework <em>loan-auto-tests</em>, incluyendo anotaciones TestNG, integración Allure y utilización de la librería <em>loan-common-utils</em>.</div>
+              </div>
+              <span class="skill-row-badge">Code Gen</span>
+            </div>
+
+          </div>
+
+          <div class="skills-visual">
+            <div class="skills-visual-title">Pipeline de ejecución</div>
+            <div class="skill-pipeline-step">
+              <div class="skill-pipeline-num">1</div>
+              <span class="skill-pipeline-label">🧠 Interpretación del DCR.md</span>
+            </div>
+            <div class="skill-pipeline-arrow">↓</div>
+            <div class="skill-pipeline-step">
+              <div class="skill-pipeline-num">2</div>
+              <span class="skill-pipeline-label">🎯 Identificación de escenarios</span>
+            </div>
+            <div class="skill-pipeline-arrow">↓</div>
+            <div class="skill-pipeline-step">
+              <div class="skill-pipeline-num">3</div>
+              <span class="skill-pipeline-label">📊 Generación de Test Cases (Excel)</span>
+            </div>
+            <div class="skill-pipeline-arrow">↓</div>
+            <div class="skill-pipeline-step">
+              <div class="skill-pipeline-num">4</div>
+              <span class="skill-pipeline-label">💻 Generación de código Java</span>
+            </div>
+            <div class="skill-pipeline-arrow">↓</div>
+            <div class="skill-pipeline-step" style="background:rgba(255,255,255,0.2); border-color:rgba(255,255,255,0.3);">
+              <div class="skill-pipeline-num" style="background:var(--warning-500);">✓</div>
+              <span class="skill-pipeline-label" style="font-weight:800;">Artefactos QA listos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 8 — ORQUESTADOR
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-light" data-slide="8">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag">Orquestador</span>
+          <h2 class="slide-h1">El <span>cerebro</span> del sistema</h2>
+          <p class="slide-lead">El orquestador es el componente central que coordina y controla todo el flujo de trabajo, garantizando que cada agente opere en el momento y contexto correcto.</p>
+        </div>
+        <div class="orchestrator-layout slide-content-anim">
+          <div class="orch-center">
+            <div class="orch-pulse-ring orch-pulse-ring-1"></div>
+            <div class="orch-pulse-ring orch-pulse-ring-2"></div>
+            <div class="orch-pulse-ring orch-pulse-ring-3"></div>
+            <div class="orch-main-box">
+              <span class="orch-main-icon">🎯</span>
+              <span class="orch-main-title">Orquestador</span>
+              <span class="orch-main-sub">Motor de coordinación</span>
+            </div>
+          </div>
+          <div class="orch-responsibilities">
+            <div class="orch-resp-item stagger-item">
+              <span class="orch-resp-icon">📥</span>
+              <div>
+                <div class="orch-resp-title">Recepción y parseo del DCR</div>
+                <div class="orch-resp-desc">Ingesta el archivo dcr.md, valida su estructura y prepara el contexto inicial para los agentes.</div>
+              </div>
+            </div>
+            <div class="orch-resp-item stagger-item">
+              <span class="orch-resp-icon">🔀</span>
+              <div>
+                <div class="orch-resp-title">Coordinación del flujo entre agentes</div>
+                <div class="orch-resp-desc">Determina el orden de ejecución, pasa el contexto entre agentes y gestiona las dependencias de datos.</div>
+              </div>
+            </div>
+            <div class="orch-resp-item stagger-item">
+              <span class="orch-resp-icon">🛡️</span>
+              <div>
+                <div class="orch-resp-title">Manejo de errores y reintentos</div>
+                <div class="orch-resp-desc">Detecta fallas en agentes, aplica políticas de reintento y garantiza la integridad del proceso completo.</div>
+              </div>
+            </div>
+            <div class="orch-resp-item stagger-item">
+              <span class="orch-resp-icon">📤</span>
+              <div>
+                <div class="orch-resp-title">Consolidación y entrega de outputs</div>
+                <div class="orch-resp-desc">Reúne los resultados de todos los agentes y genera los artefactos finales: el Excel y las clases Java.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 9 — FLUJO DE PROCESAMIENTO
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-white" data-slide="9">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag purple">Flujo End-to-End</span>
+          <h2 class="slide-h1">De <span>documento</span> a <span>artefactos</span></h2>
+          <p class="slide-lead">El proceso completo desde que el DCR es recibido hasta que los artefactos QA están disponibles para el equipo.</p>
+        </div>
+        <div class="flow-diagram slide-content-anim">
+
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box">
+              <div class="flow-step-num">1</div>
+              <span class="flow-step-icon">📄</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title">Carga del DCR.md</div>
+                <div class="flow-step-desc">El equipo de AF deposita el documento funcional. El orquestador detecta el archivo y dispara el pipeline.</div>
+              </div>
+              <span class="flow-step-time">Trigger</span>
+            </div>
+          </div>
+          <div class="flow-connector"><div class="flow-connector-line"><div class="flow-connector-dot"></div></div></div>
+
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box">
+              <div class="flow-step-num">2</div>
+              <span class="flow-step-icon">🎯</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title">Orquestador: inicialización del contexto</div>
+                <div class="flow-step-desc">Parsea el documento, extrae metadata del requerimiento, configura el contexto compartido y activa los agentes.</div>
+              </div>
+              <span class="flow-step-time">~5 seg</span>
+            </div>
+          </div>
+          <div class="flow-connector"><div class="flow-connector-line"><div class="flow-connector-dot"></div></div></div>
+
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box">
+              <div class="flow-step-num">3</div>
+              <span class="flow-step-icon">🔍</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title">Agente Analizador + Skill Interpretación</div>
+                <div class="flow-step-desc">Procesa el texto con NLP, extrae requerimientos, actores, flujos y criterios de aceptación estructurados.</div>
+              </div>
+              <span class="flow-step-time">~30 seg</span>
+            </div>
+          </div>
+          <div class="flow-connector"><div class="flow-connector-line"><div class="flow-connector-dot"></div></div></div>
+
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box highlight">
+              <div class="flow-step-num">4</div>
+              <span class="flow-step-icon">📝</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title">Agente Generador + Skills Escenarios &amp; Casos</div>
+                <div class="flow-step-desc">Genera la matriz completa de escenarios y estructura los casos de prueba en formato Excel estándar.</div>
+              </div>
+              <span class="flow-step-time">~60 seg</span>
+            </div>
+          </div>
+          <div class="flow-connector"><div class="flow-connector-line"><div class="flow-connector-dot"></div></div></div>
+
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box">
+              <div class="flow-step-num">5</div>
+              <span class="flow-step-icon">⚡</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title">Agente Automator + Skill Código Java</div>
+                <div class="flow-step-desc">Transforma los casos de prueba en clases Java para loan-auto-tests, con anotaciones TestNG y reportes Allure.</div>
+              </div>
+              <span class="flow-step-time">~60 seg</span>
+            </div>
+          </div>
+          <div class="flow-connector"><div class="flow-connector-line"><div class="flow-connector-dot"></div></div></div>
+
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box" style="border-color:var(--success-500);background:var(--success-100);">
+              <div class="flow-step-num" style="background:var(--success-100);color:var(--success-700);">✓</div>
+              <span class="flow-step-icon">🎉</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title" style="color:var(--success-700);">Artefactos entregados al equipo QA</div>
+                <div class="flow-step-desc">Excel con Test Cases + Clases Java en el proyecto de automatización, listos para revisión y ejecución.</div>
+              </div>
+              <span class="flow-step-time" style="background:var(--success-500);color:#fff;">~3 min total</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 10 — OUTPUTS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-light" data-slide="10">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag success">Outputs</span>
+          <h2 class="slide-h1">Los <span>artefactos</span> que genera el sistema</h2>
+          <p class="slide-lead">El sistema produce dos tipos de salida complementarios que cubren tanto la documentación de QA como la implementación técnica de los tests.</p>
+        </div>
+        <div class="outputs-layout slide-content-anim">
+
+          <!-- OUTPUT 1: EXCEL -->
+          <div class="output-card stagger-item">
+            <div class="output-card-header excel">
+              <span class="output-card-icon">📊</span>
+              <div class="output-card-title">Planilla de Casos de Prueba</div>
+              <div class="output-card-sub">Archivo Excel estructurado y listo para el equipo QA</div>
+            </div>
+            <div class="output-card-body">
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>ID único y trazabilidad al requerimiento del DCR</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Título descriptivo y objetivo del caso de prueba</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Precondiciones del sistema y ambiente requerido</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Pasos detallados de ejecución paso a paso</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Datos de entrada y resultado esperado claramente definidos</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Prioridad (Alta / Media / Baja) asignada automáticamente</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Escenarios positivos, negativos y condiciones de borde</span>
+              </div>
+            </div>
+            <div class="output-card-footer">
+              <span class="output-format-tag">📎 .xlsx</span>
+              &nbsp;
+              <span class="output-format-tag">📋 Compatible con Jira/AIO</span>
+            </div>
+          </div>
+
+          <!-- OUTPUT 2: JAVA -->
+          <div class="output-card stagger-item">
+            <div class="output-card-header java">
+              <span class="output-card-icon">☕</span>
+              <div class="output-card-title">Clases Java de Automatización</div>
+              <div class="output-card-sub">Código listo para ejecutar en loan-auto-tests</div>
+            </div>
+            <div class="output-card-body">
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Estructura de clase Java 21 compatible con el proyecto existente</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Anotaciones TestNG (@Test, @DataProvider, @BeforeMethod)</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Integración con Allure para reportes de ejecución</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Uso de loan-common-utils: componentes, locators y utilities</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Soporte Playwright y Selenium según tipo de test (UI/API)</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Integración con AIO Tests para gestión en Jira</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Tests de API y UI organizados en packages por versión</span>
+              </div>
+            </div>
+            <div class="output-card-footer">
+              <span class="output-format-tag">☕ Java 21</span>
+              &nbsp;
+              <span class="output-format-tag">🧪 TestNG + Allure</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 11 — BENEFICIOS QA
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-white" data-slide="11">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag success">Beneficios QA</span>
+          <h2 class="slide-h1">Impacto directo en el <span>equipo de calidad</span></h2>
+          <p class="slide-lead">El sistema transforma radicalmente la forma en que el equipo de QA trabaja, eliminando tareas repetitivas y potenciando la cobertura.</p>
+        </div>
+        <div class="benefits-grid slide-content-anim">
+
+          <div class="benefit-card b1 stagger-item">
+            <span class="benefit-icon">⚡</span>
+            <div class="benefit-stat">80%</div>
+            <div class="benefit-title">Menos tiempo en preparación</div>
+            <div class="benefit-desc">La generación de casos de prueba que tomaba horas ahora se completa en minutos, liberando al equipo para análisis de mayor valor.</div>
+          </div>
+
+          <div class="benefit-card b2 stagger-item">
+            <span class="benefit-icon">🎯</span>
+            <div class="benefit-stat">100%</div>
+            <div class="benefit-title">Cobertura total del DCR</div>
+            <div class="benefit-desc">Ningún requerimiento queda sin su caso de prueba asociado. El sistema asegura cobertura completa de cada criterio de aceptación.</div>
+          </div>
+
+          <div class="benefit-card b3 stagger-item">
+            <span class="benefit-icon">🏆</span>
+            <div class="benefit-stat">+3x</div>
+            <div class="benefit-title">Más escenarios por sprint</div>
+            <div class="benefit-desc">El volumen de casos de prueba generados supera lo que el equipo podría producir manualmente, incluyendo escenarios de borde difíciles de prever.</div>
+          </div>
+
+          <div class="benefit-card b4 stagger-item">
+            <span class="benefit-icon">📐</span>
+            <div class="benefit-stat">0</div>
+            <div class="benefit-title">Variación en el estándar</div>
+            <div class="benefit-desc">Todos los artefactos siguen el mismo formato y convenciones, eliminando inconsistencias entre analistas y sprints distintos.</div>
+          </div>
+
+          <div class="benefit-card b5 stagger-item">
+            <span class="benefit-icon">🔁</span>
+            <div class="benefit-stat">Auto</div>
+            <div class="benefit-title">Actualización ante cambios</div>
+            <div class="benefit-desc">Cuando el DCR se actualiza, el sistema puede regenerar los artefactos afectados automáticamente, manteniendo la sincronía con el requerimiento.</div>
+          </div>
+
+          <div class="benefit-card b6 stagger-item">
+            <span class="benefit-icon">🧑‍💻</span>
+            <div class="benefit-stat">Foco</div>
+            <div class="benefit-title">El equipo se enfoca en valor</div>
+            <div class="benefit-desc">Los analistas QA pueden dedicar su energía a exploración de edge cases, testing exploratorio y análisis de riesgos en lugar de redacción manual.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 12 — BENEFICIOS EMPRESA
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-light" data-slide="12">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag">Beneficios Empresa</span>
+          <h2 class="slide-h1">Valor estratégico para <span>División Informática</span></h2>
+          <p class="slide-lead">Más allá del equipo de QA, el sistema genera ventajas competitivas que impactan la operación y el negocio de Loan Software.</p>
+        </div>
+        <div class="biz-benefits-layout slide-content-anim">
+          <div>
+            <div class="biz-main-stat">
+              <div class="biz-main-value">↑ROI</div>
+              <div class="biz-main-label">Retorno sobre la inversión en calidad</div>
+            </div>
+            <br/>
+            <div class="card" style="text-align:center;padding:var(--space-lg);">
+              <p style="font-size:14px;color:var(--grey-600);line-height:1.65;">
+                Cada sprint en el que se usa el sistema, el equipo ahorra horas de trabajo que se traducen directamente en <strong style="color:var(--brand-blue-700);">reducción de costos operativos</strong> y mayor capacidad de entrega para los clientes de Loan Software.
+              </p>
+            </div>
+          </div>
+          <div class="biz-stats-col">
+            <div class="biz-stat-item stagger-item">
+              <span class="biz-stat-icon">🚀</span>
+              <div>
+                <div class="biz-stat-val">Faster TTM</div>
+                <div class="biz-stat-lbl">Menor tiempo de entrega al mercado por cada funcionalidad</div>
+              </div>
+            </div>
+            <div class="biz-stat-item stagger-item">
+              <span class="biz-stat-icon">💰</span>
+              <div>
+                <div class="biz-stat-val">Reduce Costos</div>
+                <div class="biz-stat-lbl">Menos horas-hombre en actividades de bajo valor agregado</div>
+              </div>
+            </div>
+            <div class="biz-stat-item stagger-item">
+              <span class="biz-stat-icon">🛡️</span>
+              <div>
+                <div class="biz-stat-val">Menos Bugs</div>
+                <div class="biz-stat-lbl">Mayor cobertura reduce el costo de defectos en producción</div>
+              </div>
+            </div>
+            <div class="biz-stat-item stagger-item">
+              <span class="biz-stat-icon">📈</span>
+              <div>
+                <div class="biz-stat-val">Escalabilidad</div>
+                <div class="biz-stat-lbl">El mismo sistema soporta más proyectos sin aumentar el equipo</div>
+              </div>
+            </div>
+            <div class="biz-stat-item stagger-item">
+              <span class="biz-stat-icon">🏅</span>
+              <div>
+                <div class="biz-stat-val">Ventaja competitiva</div>
+                <div class="biz-stat-lbl">División Informática incorpora IA como diferenciador en su proceso de desarrollo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE 13 — MEJORAS FUTURAS
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-white" data-slide="13">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag purple">Roadmap</span>
+          <h2 class="slide-h1">Posibles <span>mejoras</span> futuras</h2>
+          <p class="slide-lead">El sistema está diseñado para evolucionar. Estas son las próximas capacidades planificadas que ampliarán su valor.</p>
+        </div>
+        <div class="roadmap-layout slide-content-anim">
+          <div class="roadmap-col">
+            <div class="roadmap-section-title">Fase 1 — Corto plazo</div>
+            <div class="roadmap-item stagger-item">
+              <span class="roadmap-icon">🔗</span>
+              <div>
+                <div class="roadmap-title">Integración directa con Jira / AIO Tests</div>
+                <div class="roadmap-desc">Publicación automática de los test cases generados directamente en el proyecto Jira, sin intervención manual.</div>
+              </div>
+              <span class="roadmap-phase phase-1">Fase 1</span>
+            </div>
+            <div class="roadmap-item stagger-item">
+              <span class="roadmap-icon">📧</span>
+              <div>
+                <div class="roadmap-title">Notificaciones automáticas</div>
+                <div class="roadmap-desc">Alertas por email o Slack al equipo QA cuando los artefactos son generados y están listos para revisión.</div>
+              </div>
+              <span class="roadmap-phase phase-1">Fase 1</span>
+            </div>
+            <div class="roadmap-item stagger-item">
+              <span class="roadmap-icon">🖥️</span>
+              <div>
+                <div class="roadmap-title">Interfaz web de revisión</div>
+                <div class="roadmap-desc">Dashboard para que el equipo QA revise, edite y apruebe los casos generados antes de su publicación final.</div>
+              </div>
+              <span class="roadmap-phase phase-1">Fase 1</span>
+            </div>
+          </div>
+          <div class="roadmap-col">
+            <div class="roadmap-section-title">Fase 2 y 3 — Mediano y largo plazo</div>
+            <div class="roadmap-item stagger-item">
+              <span class="roadmap-icon">🧬</span>
+              <div>
+                <div class="roadmap-title">Aprendizaje continuo del sistema</div>
+                <div class="roadmap-desc">El sistema aprende de las correcciones del equipo QA para mejorar progresivamente la calidad de los artefactos generados.</div>
+              </div>
+              <span class="roadmap-phase phase-2">Fase 2</span>
+            </div>
+            <div class="roadmap-item stagger-item">
+              <span class="roadmap-icon">📑</span>
+              <div>
+                <div class="roadmap-title">Soporte para múltiples formatos de input</div>
+                <div class="roadmap-desc">Procesar también documentos en Word, PDF o Confluence, además del formato Markdown actual.</div>
+              </div>
+              <span class="roadmap-phase phase-2">Fase 2</span>
+            </div>
+            <div class="roadmap-item stagger-item">
+              <span class="roadmap-icon">🤖</span>
+              <div>
+                <div class="roadmap-title">Auto-ejecución y reporte de resultados</div>
+                <div class="roadmap-desc">Pipeline completo: generar tests, ejecutarlos y publicar un reporte de calidad automático al equipo de desarrollo.</div>
+              </div>
+              <span class="roadmap-phase phase-3">Fase 3</span>
+            </div>
+            <div class="roadmap-item stagger-item">
+              <span class="roadmap-icon">🌐</span>
+              <div>
+                <div class="roadmap-title">Extensión a otros productos</div>
+                <div class="roadmap-desc">Adaptar el sistema para otros productos de División Informática, maximizando el retorno de la inversión tecnológica.</div>
+              </div>
+              <span class="roadmap-phase phase-3">Fase 3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════
+         SLIDE CIERRE — EXTRA
+    ═══════════════════════════════════════════════════════ -->
+    <section class="slide slide-gradient" data-slide="14" id="closingSlide" style="display:none;">
+      <div class="cover-bg-circles">
+        <div class="cover-circle cover-circle-1"></div>
+        <div class="cover-circle cover-circle-2"></div>
+      </div>
+      <div class="closing-content">
+        <span class="closing-icon">🚀</span>
+        <h2 class="closing-title">El futuro del QA<br/>es inteligente</h2>
+        <p class="closing-sub">
+          Con este sistema, División Informática da un paso decisivo hacia la automatización inteligente del proceso de calidad, posicionando a Loan Software a la vanguardia del desarrollo ágil asistido por IA.
+        </p>
+        <a href="#" class="closing-cta" onclick="return false;">
+          ✨ &nbsp; División Informática · Loan Software · 2026
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─────────────────── NAVIGATION ─────────────────── -->
+  <nav class="pres-nav">
+    <button class="nav-btn" id="prevBtn" disabled title="Anterior (←)">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M10.5 2L5 8l5.5 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="nav-dots" id="navDots"></div>
+    <button class="nav-btn" id="nextBtn" title="Siguiente (→)">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M5.5 2L11 8l-5.5 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </nav>
+
+  <div class="keyboard-hint">← → para navegar · F para pantalla completa</div>
+
+</div>
+
+<script src="reporte_proyecto_ia.js"></script>
+</body>
+</html>
