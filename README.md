@@ -24,7 +24,11 @@ ai-project-report/
 
 ## Deploy
 
-El sitio es 100% estático (HTML + CSS + JS vanilla, sin dependencias externas ni build step). 
+El sitio es 100% estático (HTML + CSS + JS vanilla, sin dependencias externas ni build step). Se puede deployar directamente en **GitHub Pages**:
+
+1. Ir a **Settings → Pages** del repositorio
+2. En *Source*, seleccionar la rama y la carpeta raíz (`/`) o la carpeta `ai-project-report/`
+3. GitHub Pages publicará el sitio automáticamente
 
 La página de entrada principal es `qa_reports_portal.html`.
 

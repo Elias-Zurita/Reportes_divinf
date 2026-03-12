@@ -1,5 +1,5 @@
 {
-    "rewrites": [
-        { "source": "/", "destination": "/qa_reports_portal.html" }
-    ]
+  "rewrites": [
+    { "source": "/", "destination": "/main_portal.html" }
+  ]
 }

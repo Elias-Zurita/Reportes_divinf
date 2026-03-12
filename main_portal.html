@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal de Reportes — División Informática | Loan Software</title>
+  <link rel="stylesheet" href="main_portal.css" />
+
+  <!-- Favicon: building/portal icon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23303689'/%3E%3Crect x='6' y='14' width='20' height='13' rx='2' fill='white' opacity='0.9'/%3E%3Crect x='13' y='20' width='6' height='7' rx='1' fill='%23303689' opacity='0.7'/%3E%3Cpath d='M4 15 L16 6 L28 15' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════ -->
+  <header class="portal-header">
+    <div class="header-inner">
+
+      <div class="header-logo">
+        <img src="logo.png" alt="División Informática" class="header-logo-img" />
+        <div class="header-logo-text">
+          <span class="header-company">División Informática</span>
+          <span class="header-product">LOAN <span>SOFTWARE</span></span>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <div class="header-badge">
+          <span class="badge-dot"></span>
+          <span>Portal Principal · División Informática</span>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <div class="header-meta">
+          <span class="header-date" id="headerDate"></span>
+          <span class="header-version">v1.0</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       HERO / INTRO
+  ═══════════════════════════════════════ -->
+  <section class="portal-hero">
+    <div class="hero-bg-shapes">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#1DAB87"/><path d="M4 7l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Proyecto de Inteligencia Artificial
+      </div>
+      <h1 class="hero-title">Portal Central<br /><em>de Reportes IA</em></h1>
+      <p class="hero-subtitle">Seguimiento integral del proyecto IA por área. Accedé a los reportes de Análisis Funcional, Software Factory y Quality Assurance.</p>
+
+      <!-- Pipeline flow -->
+      <div class="hero-pipeline">
+        <div class="pipeline-step pipeline-af">
+          <div class="pipeline-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="2" width="12" height="16" rx="2" stroke="rgba(255,255,255,0.9)" stroke-width="1.6"/><path d="M6 7h6M6 10h6M6 13h4" stroke="rgba(255,255,255,0.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="17" cy="16" r="4" fill="#F59E0B"/><path d="M15.5 16l1 1 2-2" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="pipeline-label">AF</span>
+          <span class="pipeline-sub">genera el DCR</span>
+        </div>
+        <div class="pipeline-arrow">
+          <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><path d="M1 7h22M18 2l5 5-5 5" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="pipeline-step pipeline-swf">
+          <div class="pipeline-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M7 8 L3 11 L7 14" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 8 L19 11 L15 14" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 5 L9 17" stroke="rgba(255,255,255,0.65)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <span class="pipeline-label">SWF</span>
+          <span class="pipeline-sub">desarrolla</span>
+        </div>
+        <div class="pipeline-arrow">
+          <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><path d="M1 7h22M18 2l5 5-5 5" stroke="rgba(255,255,255,0.5)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="pipeline-step pipeline-qa">
+          <div class="pipeline-icon">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><ellipse cx="11" cy="14" rx="5" ry="6" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6"/><circle cx="11" cy="7" r="3.5" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6"/><line x1="8" y1="5" x2="5.5" y2="2.5" stroke="rgba(255,255,255,0.9)" stroke-width="1.4" stroke-linecap="round"/><line x1="14" y1="5" x2="16.5" y2="2.5" stroke="rgba(255,255,255,0.9)" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <span class="pipeline-label">QA</span>
+          <span class="pipeline-sub">prueba y automatiza</span>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">3</span>
+          <span class="hero-stat-lbl">Áreas involucradas</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num" id="countActive">1</span>
+          <span class="hero-stat-lbl">Portal disponible</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">2026</span>
+          <span class="hero-stat-lbl">Ciclo en curso</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       AREAS GRID
+  ═══════════════════════════════════════ -->
+  <main class="portal-main">
+    <div class="main-inner">
+
+      <div class="section-header">
+        <h2 class="section-title">Áreas del proyecto</h2>
+        <p class="section-sub">Seleccioná un área para acceder a sus reportes de avance. El flujo comienza con el DCR generado por AF.</p>
+      </div>
+
+      <div class="areas-grid">
+
+        <!-- ── CARD AF (PENDIENTE) ── -->
+        <article
+          class="area-card card-pending"
+          data-area="af"
+          tabindex="0"
+          role="button"
+          aria-label="Área de Análisis Funcional - próximamente">
+
+          <div class="card-status card-status-pending">
+            <span class="status-dot"></span>
+            En preparación
+          </div>
+
+          <div class="card-icon-wrap">
+            <svg class="card-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="afGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#B45309"/>
+                  <stop offset="100%" stop-color="#F59E0B"/>
+                </linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="14" fill="url(#afGrad)"/>
+              <!-- Document body -->
+              <rect x="11" y="8" width="22" height="28" rx="3" fill="rgba(255,255,255,0.92)"/>
+              <!-- Lines representing text -->
+              <rect x="15" y="14" width="14" height="2" rx="1" fill="#F59E0B" opacity="0.8"/>
+              <rect x="15" y="19" width="14" height="1.5" rx="0.75" fill="#B45309" opacity="0.5"/>
+              <rect x="15" y="22.5" width="10" height="1.5" rx="0.75" fill="#B45309" opacity="0.5"/>
+              <rect x="15" y="26" width="14" height="1.5" rx="0.75" fill="#B45309" opacity="0.5"/>
+              <rect x="15" y="29.5" width="8" height="1.5" rx="0.75" fill="#B45309" opacity="0.5"/>
+              <!-- DCR badge -->
+              <rect x="26" y="28" width="16" height="14" rx="5" fill="#B45309"/>
+              <text x="34" y="38" text-anchor="middle" font-size="6" font-weight="700" fill="white" font-family="Inter, sans-serif">DCR</text>
+            </svg>
+          </div>
+
+          <div class="card-header-tag">
+            <div class="pipeline-badge pipeline-badge-af">
+              <span>01</span>
+              Primer paso
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-tag card-tag-warning">Análisis Funcional</div>
+            <h3 class="card-title">AF — Análisis Funcional</h3>
+            <p class="card-desc">El área de Análisis Funcional es responsable de generar el DCR (Documento de Cambio de Requerimiento) que da inicio al flujo del proyecto IA. Define los requisitos que guían el desarrollo y las pruebas.</p>
+          </div>
+
+          <div class="card-meta">
+            <div class="card-meta-item">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              Próximamente
+            </div>
+            <div class="card-meta-item">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2" width="11" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5h11M4 1v2M9 1v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              2026
+            </div>
+          </div>
+
+          <button class="card-btn card-btn-disabled" disabled>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="3" y="6" width="8" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 6V4.5a2 2 0 0 1 4 0V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Portal no disponible
+          </button>
+        </article>
+
+        <!-- ── CARD SWF (PENDIENTE) ── -->
+        <article
+          class="area-card card-pending"
+          data-area="swf"
+          tabindex="0"
+          role="button"
+          aria-label="Área de Software Factory - próximamente">
+
+          <div class="card-status card-status-pending">
+            <span class="status-dot"></span>
+            En preparación
+          </div>
+
+          <div class="card-icon-wrap">
+            <svg class="card-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="swfGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#1E478A"/>
+                  <stop offset="100%" stop-color="#3B82F6"/>
+                </linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="14" fill="url(#swfGrad)"/>
+              <!-- Monitor / IDE frame -->
+              <rect x="8" y="10" width="32" height="22" rx="3" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.6)" stroke-width="1.4"/>
+              <!-- Traffic lights -->
+              <circle cx="13" cy="15" r="1.5" fill="#F34A5E" opacity="0.9"/>
+              <circle cx="18" cy="15" r="1.5" fill="#F59E0B" opacity="0.9"/>
+              <circle cx="23" cy="15" r="1.5" fill="#1DAB87" opacity="0.9"/>
+              <!-- Code lines -->
+              <path d="M13 22 L17 22" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M19 22 L28 22" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M15 26 L24 26" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M13 26 L13.5 26" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Code brackets -->
+              <path d="M26 26 L29 26" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Stand -->
+              <rect x="21" y="32" width="6" height="3" rx="1" fill="rgba(255,255,255,0.4)"/>
+              <rect x="17" y="35" width="14" height="2" rx="1" fill="rgba(255,255,255,0.4)"/>
+            </svg>
+          </div>
+
+          <div class="card-header-tag">
+            <div class="pipeline-badge pipeline-badge-swf">
+              <span>02</span>
+              Segundo paso
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-tag card-tag-info">Software Factory · Desarrollo</div>
+            <h3 class="card-title">SWF — Software Factory</h3>
+            <p class="card-desc">El área de Software Factory toma el DCR generado por AF y lleva a cabo el desarrollo de las funcionalidades requeridas. Sus entregas son la base sobre la que QA ejecuta las pruebas.</p>
+          </div>
+
+          <div class="card-meta">
+            <div class="card-meta-item">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              Próximamente
+            </div>
+            <div class="card-meta-item">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2" width="11" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5h11M4 1v2M9 1v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              2026
+            </div>
+          </div>
+
+          <button class="card-btn card-btn-disabled" disabled>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="3" y="6" width="8" height="6" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 6V4.5a2 2 0 0 1 4 0V6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Portal no disponible
+          </button>
+        </article>
+
+        <!-- ── CARD QA (DISPONIBLE) ── -->
+        <article
+          class="area-card card-available"
+          data-area="qa"
+          data-report="reporte_proyecto_ia.html"
+          tabindex="0"
+          role="button"
+          aria-label="Ver portal del área de Quality Assurance">
+
+          <div class="card-status card-status-available">
+            <span class="status-dot"></span>
+            Portal disponible
+          </div>
+
+          <div class="card-icon-wrap">
+            <svg class="card-icon-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="qaGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#303689"/>
+                  <stop offset="100%" stop-color="#5B247A"/>
+                </linearGradient>
+              </defs>
+              <rect width="48" height="48" rx="14" fill="url(#qaGrad)"/>
+              <!-- Bug body -->
+              <ellipse cx="24" cy="30" rx="7" ry="9" fill="rgba(255,255,255,0.88)"/>
+              <!-- Bug head -->
+              <circle cx="24" cy="18" r="5.5" fill="rgba(255,255,255,0.88)"/>
+              <!-- Eyes -->
+              <circle cx="22" cy="17" r="1.5" fill="url(#qaGrad)"/>
+              <circle cx="26" cy="17" r="1.5" fill="url(#qaGrad)"/>
+              <!-- Antennae -->
+              <line x1="21" y1="13.5" x2="17" y2="9" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round"/>
+              <line x1="27" y1="13.5" x2="31" y2="9" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round"/>
+              <!-- Segments -->
+              <line x1="17" y1="28" x2="31" y2="28" stroke="rgba(48,54,137,0.3)" stroke-width="1"/>
+              <line x1="17" y1="33" x2="31" y2="33" stroke="rgba(48,54,137,0.3)" stroke-width="1"/>
+              <!-- Left legs -->
+              <line x1="17" y1="26" x2="11" y2="23" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="17" y1="30" x2="11" y2="30" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="17" y1="34" x2="11" y2="37" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Right legs -->
+              <line x1="31" y1="26" x2="37" y2="23" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="31" y1="30" x2="37" y2="30" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="31" y1="34" x2="37" y2="37" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+
+          <div class="card-header-tag">
+            <div class="pipeline-badge pipeline-badge-qa">
+              <span>03</span>
+              Tercer paso
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="card-tag card-tag-blue">Quality Assurance</div>
+            <h3 class="card-title">QA — Quality Assurance</h3>
+            <p class="card-desc">El área de QA toma el DCR de AF y el desarrollo de SWF para generar casos de prueba y tests automatizados mediante agentes de IA, cerrando el ciclo del proyecto.</p>
+          </div>
+
+          <div class="card-meta">
+            <div class="card-meta-item">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 3.5v3l2 1.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              Disponible
+            </div>
+            <div class="card-meta-item">
+              <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><rect x="1" y="2" width="11" height="10" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M1 5h11M4 1v2M9 1v2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+              2026
+            </div>
+          </div>
+
+          <button class="card-btn card-btn-primary" onclick="openPortal('reporte_proyecto_ia.html')">
+            Ir al portal QA
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="card-shine"></div>
+        </article>
+
+      </div><!-- /areas-grid -->
+
+    </div><!-- /main-inner -->
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="portal-footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <img src="logo.png" alt="División Informática" class="footer-logo" />
+        <span class="footer-brand">División Informática · Loan Software</span>
+      </div>
+      <div class="footer-center">
+        <span class="footer-copy">Portal Central de Reportes IA &mdash; Uso interno</span>
+      </div>
+      <div class="footer-right">
+        <span class="footer-version">v1.0 · 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════
+       TOAST NOTIFICATION
+  ═══════════════════════════════════════ -->
+  <div class="toast" id="toast">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#FDB022" stroke-width="1.5"/><path d="M8 5v4M8 11v.5" stroke="#FDB022" stroke-width="1.5" stroke-linecap="round"/></svg>
+    <span id="toastMsg">El portal de esta área aún no está disponible.</span>
+  </div>
+
+  <script src="main_portal.js"></script>
+</body>
+</html>
