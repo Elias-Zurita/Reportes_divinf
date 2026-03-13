@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documento Funcional - NPA-283</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Calibri:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    @page { size: A4; margin: 2cm; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Calibri', 'Segoe UI', sans-serif;
+      font-size: 11pt;
+      line-height: 1.35;
+      color: #333;
+      max-width: 210mm;
+      margin: 0 auto;
+      padding: 20mm;
+      background: #fff;
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22pt;
+      font-weight: 700;
+      color: #5A247A;
+      text-transform: uppercase;
+      margin: 0 0 24px 0;
+      padding-bottom: 8px;
+      border-bottom: 3px solid #5A247A;
+    }
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16pt;
+      font-weight: 600;
+      color: #fff;
+      background: #5A247A;
+      text-transform: uppercase;
+      margin: 32px 0 16px 0;
+      padding: 8px 12px;
+    }
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14pt;
+      font-weight: 600;
+      color: #fff;
+      background: #5D3BBB;
+      text-transform: uppercase;
+      margin: 24px 0 12px 0;
+      padding: 6px 12px;
+    }
+    p { margin: 0 0 12px 0; text-align: justify; }
+    ul { margin: 0 0 12px 0; padding-left: 24px; }
+    ul li { margin-bottom: 6px; }
+    .doc-header { margin-bottom: 32px; padding-bottom: 16px; border-bottom: 1px solid #ddd; }
+    .doc-header .meta { font-size: 10pt; color: #666; }
+    .doc-header .meta span { margin-right: 16px; }
+    .content-block { margin-bottom: 16px; }
+    .content-block img { max-width: 100%; height: auto; border: 1px solid #ddd; margin: 12px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 10pt; }
+    table th, table td { border: 1px solid #B2A1C7; padding: 8px 12px; text-align: left; }
+    table th { background: #5A247A; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 600; }
+    table tr:nth-child(even) { background: #f9f7fc; }
+    .caso-uso {
+      margin-bottom: 16px;
+      padding: 12px;
+      border-left: 4px solid #5D3BBB;
+      background: #f9f7fc;
+    }
+    .caso-uso .id { font-weight: 700; color: #5A247A; margin-bottom: 4px; }
+    .caso-uso .titulo { font-weight: 600; margin-bottom: 8px; }
+    .page-break { page-break-before: always; }
+    .mermaid-container { margin: 16px 0; display: flex; justify-content: center; }
+    .mermaid-container .mermaid { max-width: 100%; }
+    .caso-uso .mermaid { margin-top: 12px; }
+    .archivo-especificacion { margin-bottom: 24px; }
+    .archivo-especificacion code { font-size: 9pt; word-break: break-all; background: #f5f5f5; padding: 2px 4px; }
+    .indice { background: #f9f7fc; border: 1px solid #B2A1C7; padding: 16px 20px; margin-bottom: 24px; }
+    .indice h2 { margin-top: 0; }
+    .indice ul { list-style: none; padding-left: 0; margin: 0; }
+    .indice li { margin: 6px 0; }
+    .indice a { color: #5A247A; text-decoration: none; font-weight: 500; }
+    .indice a:hover { text-decoration: underline; }
+    .indice .indice-sub { padding-left: 16px; margin-top: 4px; }
+    .indice .indice-sub a { font-weight: 400; font-size: 10pt; }
+    .modificacion-seccion { margin-bottom: 20px; }
+    @media print {
+      body { padding: 0; }
+      .page-break { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+  <div class="doc-header">
+    <h1 id="doc-title">[idTicket] – NombreTicket</h1>
+    <div class="meta">
+      <span><strong>Fecha:</strong> <span id="doc-fecha">-</span></span>
+      <span><strong>Ticket:</strong> <span id="doc-id-ticket">-</span></span>
+    </div>
+  </div>
+
+  <div id="indice" class="indice"></div>
+
+  <h2 id="sec-objetivos">Objetivos del desarrollo</h2>
+  <div id="objetivos"></div>
+
+  <h2 id="sec-alcance">Alcance</h2>
+  <p>El alcance del desarrollo es el siguiente:</p>
+  <h3 id="sec-alcance-modifica">Se modifica</h3>
+  <ul id="alcance-se-modifica"></ul>
+  <h3 id="sec-alcance-no-modifica">No se modifica</h3>
+  <ul id="alcance-no-se-modifica"></ul>
+
+  <div class="page-break"></div>
+
+  <h2 id="sec-funcionalidad-actual">Funcionalidad actual</h2>
+  <div id="funcionalidad-actual"></div>
+
+  <h2 id="sec-modificaciones">Detalle de modificaciones</h2>
+  <div id="detalle-modificaciones"></div>
+
+  <div class="page-break"></div>
+
+  <h2 id="sec-casos-uso">Casos de uso</h2>
+  <div id="casos-de-uso"></div>
+
+  <h2 id="sec-definiciones">Definiciones</h2>
+  <div id="definiciones"></div>
+
+  <h2 id="sec-validaciones">Validaciones y mensajes</h2>
+  <div id="validaciones"></div>
+  <div id="mensajes"></div>
+
+  <h2 id="sec-precondiciones">Precondiciones</h2>
+  <div id="precondiciones"></div>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral', flowchart: { useMaxWidth: true, htmlLabels: true } });
+    window.mermaid = mermaid;
+  </script>
+  <script>
+    var DOCUMENTO_AF_DATA = {
+  "fecha": "2026-03-12",
+  "idTicket": "NPA-283",
+  "nombreTicket": "Implementación de correlationId para rastreo con DataDog",
+  "objetivos": "Natura Pay requiere la capacidad de rastrear de punta a punta cada transacción entre sus sistemas y Loan en la plataforma DataDog. Para lograrlo, Natura Pay generará un identificador único por operación (denominado <em>correlationId</em>) que enviará en cada consulta a Loan. El sistema deberá capturar ese identificador, almacenarlo a través de Servicios Genéricos, y devolverlo en las notificaciones automáticas (webhooks) de respuesta, de modo que Natura Pay pueda correlacionar el evento de notificación con la consulta que lo originó.<br><br>La implementación se basa en el principio de que toda la lógica de integración reside en <strong>Servicios Genéricos</strong>, el aplicativo satélite diseñado específicamente para este tipo de integraciones, minimizando al máximo los cambios en el código fuente de Loan.",
+  "alcance": {
+    "seModifica": [
+      "Recepción del identificador de correlación (<em>X-Correlation-Id</em>) en 15 servicios de la API de Loan",
+      "Devolución del identificador de correlación en el encabezado de cada respuesta de la API",
+      "Almacenamiento del identificador en la base de datos de Servicios Genéricos, asociado a cada operación (concreción de crédito, anulación, reversión, alta/anulación de prórroga)",
+      "Inclusión del identificador de correlación en el cuerpo de las notificaciones automáticas hacia Natura Pay: alta de crédito, imputación de cobranza, anulación de crédito, alta de prórroga y anulación de prórroga",
+      "Servicios Genéricos: nueva funcionalidad de almacenamiento y consulta del identificador de correlación (nueva tabla en su base de datos)"
+    ],
+    "noSeModifica": [
+      "Base de datos de Loan (sin cambios en ninguna tabla existente)",
+      "Pantallas e interfaz web de Loan",
+      "Lógica de negocio core de Loan (procesamiento de solicitudes, créditos, cobranzas)",
+      "Configuración de notificaciones por entidad y comercio (pantalla existente en Loan)",
+      "Resto de integraciones de Loan con otros sistemas externos (Bridge, Vtex, Finjet, etc.)"
+    ]
+  },
+  "funcionalidadActual": [
+    {
+      "tipo": "texto",
+      "contenido": "Actualmente, Natura Pay realiza consultas a la API de Loan para el flujo de otorgamiento de créditos (autenticación, precalificación, calificación, calculador de cuotas, selección, concreción) y para la gestión de prórrogas. Estas consultas no incluyen ningún identificador de correlación."
+    },
+    {
+      "tipo": "texto",
+      "contenido": "Loan procesa las operaciones y envía notificaciones automáticas (webhooks) hacia Natura Pay cuando ocurren eventos relevantes: alta de crédito (concreción) e imputación de cobranza. Estas notificaciones no incluyen ningún dato que permita a Natura Pay vincularlas con la consulta original que las originó."
+    },
+    {
+      "tipo": "texto",
+      "contenido": "No existe un mecanismo que permita rastrear en DataDog la cadena completa: consulta inicial de Natura Pay → procesamiento en Loan → notificación de respuesta. Cada parte de la transacción es independiente y no está correlacionada, lo que dificulta el diagnóstico de incidentes y el monitoreo operativo."
+    }
+  ],
+  "detalleModificaciones": [
+    {
+      "titulo": "Principio arquitectónico: Servicios Genéricos como capa de integración",
+      "tipo": "texto",
+      "contenido": "La totalidad de la lógica de almacenamiento y propagación del identificador de correlación se implementa en <strong>Servicios Genéricos</strong>. Esto implica que la base de datos de Loan no recibe ninguna modificación, y los cambios en el código fuente de Loan se reducen al mínimo (captura del identificador en el encabezado de la consulta y su propagación al momento de enviar notificaciones). Servicios Genéricos almacena la relación entre el identificador de correlación y la operación de Loan en su propia base de datos, y responde a consultas sobre ese dato cuando Loan necesita construir una notificación."
+    },
+    {
+      "titulo": "Flujo principal con identificador de correlación",
+      "tipo": "mermaid",
+      "contenido": "sequenceDiagram\n    participant NP as Natura Pay\n    participant LOAN as Loan (API)\n    participant SG as Servicios Genéricos\n    participant SGDB as BD Servicios Genéricos\n\n    NP->>LOAN: Consulta al servicio<br/>Encabezado: X-Correlation-Id = uuid-123\n    LOAN->>LOAN: Captura el identificador\n    LOAN->>SG: Registrar correlationId = uuid-123<br/>para la operación (ej: idCredito = 456)\n    SG->>SGDB: Guardar relación\n    SGDB-->>SG: OK\n    LOAN-->>NP: Respuesta OK<br/>Encabezado: X-Correlation-Id = uuid-123\n\n    Note over SG,SGDB: Evento posterior (ej: alta de crédito)\n\n    LOAN->>SG: ¿Cuál es el correlationId<br/>del crédito 456?\n    SG->>SGDB: Consultar\n    SGDB-->>SG: uuid-123\n    SG-->>LOAN: correlationId = uuid-123\n    LOAN->>NP: Notificación automática<br/>{ correlationId: uuid-123, evento: ALTA_CREDITO, ... }\n    NP-->>LOAN: OK"
+    },
+    {
+      "titulo": "Servicios que almacenan el identificador en Servicios Genéricos",
+      "tipo": "texto",
+      "contenido": "No todos los servicios que reciben el identificador de correlación lo persisten en Servicios Genéricos. Solo lo hacen aquellos que generan un evento en Loan que luego dispara una notificación hacia Natura Pay:<ul><li><strong>Concreción de solicitud</strong> (/serviciosapi/api/concretarsolicitud): alta de crédito</li><li><strong>Anulación de solicitud</strong> (/serviciosapi/api/anularSolicitud): anulación de crédito</li><li><strong>Reversión de solicitud</strong> (/serviciosapi/api/reversarSolicitud): reversión de crédito</li><li><strong>Alta de prórroga</strong> (/api/v1/prorrogas): alta de prórroga</li><li><strong>Anulación de prórroga</strong> (/api/v1/prorrogas/anulacion): anulación de prórroga</li></ul>Los demás servicios (login, precalificación, calificación, calculador, obtener persona, obtener crédito, etc.) capturan y devuelven el identificador en el encabezado de respuesta, pero no lo almacenan ya que no generan eventos notificables."
+    },
+    {
+      "titulo": "Notificaciones automáticas con identificador de correlación",
+      "tipo": "texto",
+      "contenido": "El identificador de correlación se incluye como campo en el cuerpo (body) de las notificaciones automáticas hacia Natura Pay, <strong>no</strong> en el encabezado HTTP de la notificación. Los 5 tipos de notificaciones afectadas son:<ul><li>Alta de crédito (concreción)</li><li>Imputación de cobranza</li><li>Anulación de crédito <em>(nuevo tipo de notificación a implementar)</em></li><li>Alta de prórroga <em>(nuevo tipo de notificación a implementar)</em></li><li>Anulación de prórroga <em>(nuevo tipo de notificación a implementar)</em></li></ul>Si la operación no tiene un identificador almacenado en Servicios Genéricos (porque Natura Pay no lo envió en la consulta original), el campo <em>correlationId</em> se omite del cuerpo de la notificación."
+    },
+    {
+      "titulo": "Flujo cuando no se envía el identificador de correlación",
+      "tipo": "mermaid",
+      "contenido": "flowchart TD\n    A[Natura Pay realiza consulta<br/>SIN identificador de correlación] --> B[Loan procesa normalmente]\n    B --> C{¿Se genera notificación?}\n    C -->|Sí| D[Servicios Genéricos no tiene\ncorrelationId para esa operación]\n    D --> E[Notificación enviada SIN campo correlationId]\n    C -->|No| F[Fin del flujo]\n    E --> F"
+    },
+    {
+      "titulo": "Resiliencia ante indisponibilidad de Servicios Genéricos",
+      "tipo": "texto",
+      "contenido": "La comunicación entre Loan y Servicios Genéricos para registrar o consultar el identificador de correlación es <strong>no bloqueante</strong>: si Servicios Genéricos no está disponible en el momento de procesar una consulta o una notificación, Loan continúa operando con normalidad. En ese escenario se pierde la trazabilidad de esa operación particular, pero el negocio no se ve afectado. El sistema registra una advertencia en los logs para facilitar el diagnóstico posterior."
+    }
+  ],
+  "casosDeUso": [
+    {
+      "id": "CU-01",
+      "titulo": "Concreción de crédito con identificador de correlación",
+      "descripcion": "Dado que Natura Pay envía una consulta de concreción de crédito incluyendo el encabezado X-Correlation-Id con el valor uuid-123, cuando Loan procesa la operación, entonces: (1) el crédito se crea correctamente, (2) el identificador uuid-123 queda almacenado en Servicios Genéricos asociado al crédito, y (3) la respuesta de Loan incluye el encabezado X-Correlation-Id: uuid-123.",
+      "diagramaMermaid": "flowchart LR\n    A[Dado: Consulta de concreción<br/>con X-Correlation-Id: uuid-123] --> B[Cuando: Loan procesa la operación]\n    B --> C[Entonces: Crédito creado +<br/>uuid-123 guardado en SG +<br/>respuesta con X-Correlation-Id]"
+    },
+    {
+      "id": "CU-02",
+      "titulo": "Consulta sin identificador de correlación",
+      "descripcion": "Dado que Natura Pay envía una consulta a cualquiera de los servicios de Loan sin incluir el encabezado X-Correlation-Id, cuando Loan procesa la operación, entonces la operación se ejecuta con normalidad y no se registra ningún identificador en Servicios Genéricos.",
+      "diagramaMermaid": "flowchart LR\n    A[Dado: Consulta SIN X-Correlation-Id] --> B[Cuando: Loan procesa la operación]\n    B --> C[Entonces: Operación exitosa,<br/>sin registro en Servicios Genéricos]"
+    },
+    {
+      "id": "CU-03",
+      "titulo": "Notificación de alta de crédito con identificador de correlación",
+      "descripcion": "Dado que un crédito fue creado con el identificador de correlación uuid-123 almacenado en Servicios Genéricos, cuando Loan dispara la notificación automática de alta de crédito hacia Natura Pay, entonces el cuerpo de la notificación incluye el campo correlationId con el valor uuid-123.",
+      "diagramaMermaid": "flowchart LR\n    A[Dado: Crédito con correlationId uuid-123<br/>en Servicios Genéricos] --> B[Cuando: Loan envía notificación de alta de crédito]\n    B --> C[\"Entonces: Notificación con<br/>correlationId: uuid-123, evento: ALTA_CREDITO\"]"
+    },
+    {
+      "id": "CU-04",
+      "titulo": "Imputación de cobranza con identificador de correlación",
+      "descripcion": "Dado que un crédito fue creado con el identificador de correlación uuid-456 almacenado en Servicios Genéricos, cuando se imputa una cobranza a ese crédito y Loan dispara la notificación automática de imputación, entonces el cuerpo de la notificación incluye el campo correlationId con el valor uuid-456.",
+      "diagramaMermaid": "flowchart LR\n    A[Dado: Crédito con correlationId uuid-456] --> B[Cuando: Se imputa cobranza]\n    B --> C[\"Entonces: Notificación con<br/>correlationId: uuid-456, evento: IMPUTACION\"]"
+    },
+    {
+      "id": "CU-05",
+      "titulo": "Servicios Genéricos no disponible",
+      "descripcion": "Dado que Servicios Genéricos no está disponible al momento de procesar una consulta que incluye X-Correlation-Id, cuando Loan intenta registrar el identificador, entonces Loan continúa procesando la operación con normalidad (el crédito se crea o la operación se completa sin interrupción), y se registra una advertencia en los logs indicando que no fue posible almacenar el identificador de correlación.",
+      "diagramaMermaid": "flowchart LR\n    A[Dado: SG no disponible +<br/>consulta con X-Correlation-Id] --> B[Cuando: Loan intenta registrar correlationId]\n    B --> C[Entonces: Operación exitosa +<br/>advertencia en logs +<br/>trazabilidad perdida para esa operación]"
+    }
+  ],
+  "definiciones": [
+    {
+      "termino": "Identificador de correlación (correlationId)",
+      "definicion": "Valor único generado por Natura Pay para identificar y rastrear una transacción de punta a punta entre sistemas. Funciona como el número de protocolo de una operación: independientemente del tiempo de procesamiento o la cantidad de pasos, ese número acompaña la transacción desde la consulta inicial hasta la notificación de respuesta."
+    },
+    {
+      "termino": "X-Correlation-Id",
+      "definicion": "Nombre del campo en el encabezado de la consulta HTTP a través del cual Natura Pay envía el identificador de correlación a Loan. También se devuelve en el encabezado de la respuesta de Loan."
+    },
+    {
+      "termino": "DataDog",
+      "definicion": "Plataforma de monitoreo y observabilidad utilizada por Natura Pay (ThoughtWorks) para rastrear, analizar y diagnosticar transacciones entre sistemas."
+    },
+    {
+      "termino": "Servicios Genéricos",
+      "definicion": "Aplicativo satélite de Loan, desarrollado específicamente para implementar integraciones entre Loan y sistemas externos. Tiene su propia base de datos y lógica independiente, lo que permite agregar o modificar integraciones sin alterar el código fuente de Loan."
+    },
+    {
+      "termino": "Notificación automática (Webhook)",
+      "definicion": "Aviso automático que Loan envía a Natura Pay cuando ocurre un evento relevante, como la creación de un crédito, la imputación de una cobranza o la alta/anulación de una prórroga. Se envía como un mensaje HTTP hacia la URL configurada por Natura Pay."
+    },
+    {
+      "termino": "CorrelationMapping",
+      "definicion": "Nueva tabla en la base de datos de Servicios Genéricos que almacena la relación entre un identificador de correlación y la operación de Loan a la que pertenece (tipo de operación e identificador de la entidad)."
+    }
+  ],
+  "validaciones": [
+    {
+      "id": "RN-01",
+      "regla": "El identificador de correlación (X-Correlation-Id) es opcional",
+      "mensaje": "Si la consulta no incluye el encabezado X-Correlation-Id, Loan procesa normalmente sin error ni rechazo."
+    },
+    {
+      "id": "RN-02",
+      "regla": "El identificador se almacena solo para operaciones que generan eventos notificables",
+      "mensaje": "Solo los servicios de concreción, anulación, reversión de solicitudes y alta/anulación de prórrogas persisten el identificador en Servicios Genéricos."
+    },
+    {
+      "id": "RN-03",
+      "regla": "El identificador va en el cuerpo de la notificación, no en el encabezado",
+      "mensaje": "En las notificaciones automáticas (webhooks), el campo correlationId se incluye en el cuerpo JSON, no en el encabezado HTTP."
+    },
+    {
+      "id": "RN-04",
+      "regla": "Si no hay identificador almacenado, la notificación se envía sin él",
+      "mensaje": "Si la operación no tuvo correlationId en la consulta original, el campo se omite del cuerpo de la notificación."
+    },
+    {
+      "id": "RN-05",
+      "regla": "El identificador no se modifica durante el procesamiento",
+      "mensaje": "Loan y Servicios Genéricos no alteran ni regeneran el correlationId. Se reenvía exactamente el valor recibido de Natura Pay."
+    },
+    {
+      "id": "RN-06",
+      "regla": "La disponibilidad de Servicios Genéricos no es bloqueante para Loan",
+      "mensaje": "Si Servicios Genéricos no está disponible, Loan continúa operando normalmente. Solo se pierde la trazabilidad de esa operación; el negocio no se interrumpe."
+    }
+  ],
+  "mensajes": [
+    {
+      "escenario": "Consulta recibida con X-Correlation-Id",
+      "mensaje": "El identificador es capturado, almacenado en Servicios Genéricos (si corresponde) y devuelto en el encabezado de la respuesta."
+    },
+    {
+      "escenario": "Consulta recibida sin X-Correlation-Id",
+      "mensaje": "La operación se procesa normalmente. No se registra ningún identificador y las notificaciones derivadas se envían sin el campo correlationId."
+    },
+    {
+      "escenario": "Notificación automática con correlationId disponible",
+      "mensaje": "El cuerpo de la notificación incluye el campo: \"correlationId\": \"<valor-uuid>\"."
+    },
+    {
+      "escenario": "Notificación automática sin correlationId (no fue enviado originalmente)",
+      "mensaje": "El cuerpo de la notificación se envía sin el campo correlationId (o con valor null)."
+    },
+    {
+      "escenario": "Servicios Genéricos no disponible al registrar el identificador",
+      "mensaje": "La operación en Loan se completa exitosamente. Se registra una advertencia interna. El correlationId no queda almacenado para esa operación."
+    }
+  ],
+  "precondiciones": [
+    "Las entidades y comercios de Natura Pay deben tener configuradas las URLs de notificación (webhooks) en el sistema Loan para los tipos de eventos: alta de crédito e imputación de cobranza. Esta configuración ya debe existir con anterioridad al despliegue.",
+    "Servicios Genéricos debe tener creada la nueva tabla de almacenamiento de identificadores de correlación (CorrelationMapping) en su base de datos, antes de activar la funcionalidad.",
+    "Servicios Genéricos debe exponer los servicios internos de registro y consulta del identificador de correlación, consumibles por Loan.",
+    "Los servicios de prórroga (/api/v1/prorrogas/*) no existen actualmente en Loan. Su implementación es un prerrequisito para que la propagación del identificador de correlación funcione en ese módulo. Este punto debe coordinarse con el equipo de desarrollo.",
+    "Se requiere evaluar y definir los nuevos tipos de notificación para los eventos aún no implementados: anulación de crédito, alta de prórroga y anulación de prórroga.",
+    "Natura Pay debe confirmar el formato exacto del identificador de correlación que generan (se asume UUID v4, longitud máxima 128 caracteres)."
+  ]
+};
+  </script>
+  <script>
+    function renderDocument(data) {
+      const d = data || {};
+      document.getElementById('doc-title').textContent = `[${d.idTicket || '-'}] \u2013 ${d.nombreTicket || 'Sin título'}`;
+      document.getElementById('doc-fecha').textContent = d.fecha || '-';
+      document.getElementById('doc-id-ticket').textContent = d.idTicket || '-';
+      if (d.objetivos) {
+        document.getElementById('objetivos').innerHTML = `<p>${d.objetivos}</p>`;
+      }
+      renderIndice(d);
+      const seModifica = d.alcance?.seModifica || [];
+      const noSeModifica = d.alcance?.noSeModifica || [];
+      document.getElementById('alcance-se-modifica').innerHTML = seModifica.map(item => `<li>${item}</li>`).join('') || '<li><em>Sin contenido</em></li>';
+      document.getElementById('alcance-no-se-modifica').innerHTML = noSeModifica.map(item => `<li>${item}</li>`).join('') || '<li><em>Sin contenido</em></li>';
+      document.getElementById('funcionalidad-actual').innerHTML = renderBloques(d.funcionalidadActual);
+      const archivos = d.archivosIntercambio || [];
+      let detalleHtml = renderBloquesConSubtitulos(d.detalleModificaciones);
+      if (archivos.length > 0) {
+        detalleHtml += `<h3 id="sec-archivos-intercambio">Formatos de archivos de intercambio</h3><div class="archivos-intercambio-wrap">`;
+        detalleHtml += archivos.map(arch => {
+          const cols = arch.columnas || [];
+          const headers = cols.length > 0 ? Object.keys(cols[0]) : [];
+          const tipoLabel = arch.tipo === 'generacion' ? 'Generación' : arch.tipo === 'consumo' ? 'Recepción' : '';
+          let html = `<div class="archivo-especificacion"><h3>${arch.nombre || ''}${tipoLabel ? ' (' + tipoLabel + ')' : ''}</h3>`;
+          if (arch.descripcion) html += `<p>${arch.descripcion}</p>`;
+          if (arch.formato) html += `<p><strong>Formato:</strong> ${arch.formato}</p>`;
+          if (arch.encabezadoArchivo) html += `<p><strong>Encabezado:</strong> <code>${arch.encabezadoArchivo}</code></p>`;
+          if (cols.length > 0) {
+            const thLabels = { columna: 'Columna', campoOrigen: 'Campo origen', origen: 'Origen', uso: 'Uso en sistema', tipo: 'Tipo', transformacion: 'Transformación', descripcion: 'Descripción' };
+            html += `<table><thead><tr>${headers.map(h => `<th>${thLabels[h] || h}</th>`).join('')}</tr></thead><tbody>`;
+            cols.forEach(row => { html += `<tr>${headers.map(h => `<td>${row[h] || ''}</td>`).join('')}</tr>`; });
+            html += `</tbody></table>`;
+          }
+          if (arch.ejemploLinea) html += `<p><strong>Ejemplo de línea:</strong> <code>${arch.ejemploLinea}</code></p>`;
+          html += `</div>`;
+          return html;
+        }).join('');
+        detalleHtml += `</div>`;
+      }
+      document.getElementById('detalle-modificaciones').innerHTML = detalleHtml;
+      const casos = d.casosDeUso || [];
+      document.getElementById('casos-de-uso').innerHTML = casos.map(c => {
+        const diagramaHtml = c.diagramaMermaid
+          ? `<pre class="mermaid">${(c.diagramaMermaid || '').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</pre>`
+          : '';
+        return `<div class="caso-uso"><div class="id">${c.id || ''}</div><div class="titulo">${c.titulo || ''}</div><div class="descripcion">${c.descripcion || ''}</div>${diagramaHtml}</div>`;
+      }).join('') || '<p><em>Sin casos de uso definidos</em></p>';
+      const defs = d.definiciones || [];
+      if (defs.length > 0) {
+        document.getElementById('definiciones').innerHTML = `<table><thead><tr><th>Término</th><th>Definición</th></tr></thead><tbody>${defs.map(def => `<tr><td>${def.termino || ''}</td><td>${def.definicion || ''}</td></tr>`).join('')}</tbody></table>`;
+      } else {
+        document.getElementById('definiciones').innerHTML = '<p><em>Sin definiciones</em></p>';
+      }
+      const validaciones = d.validaciones || [];
+      if (validaciones.length > 0) {
+        document.getElementById('validaciones').innerHTML = `<table><thead><tr><th>ID</th><th>Regla</th><th>Mensaje</th></tr></thead><tbody>${validaciones.map(v => `<tr><td>${v.id || ''}</td><td>${v.regla || ''}</td><td>${v.mensaje || ''}</td></tr>`).join('')}</tbody></table>`;
+      } else {
+        document.getElementById('validaciones').innerHTML = '';
+      }
+      const mensajes = d.mensajes || [];
+      if (mensajes.length > 0) {
+        document.getElementById('mensajes').innerHTML = `<table><thead><tr><th>Escenario</th><th>Comportamiento esperado</th></tr></thead><tbody>${mensajes.map(m => `<tr><td>${m.escenario || ''}</td><td>${m.mensaje || ''}</td></tr>`).join('')}</tbody></table>`;
+      } else {
+        document.getElementById('mensajes').innerHTML = '';
+      }
+      const precond = d.precondiciones || [];
+      if (precond.length > 0) {
+        document.getElementById('precondiciones').innerHTML = `<ul>${precond.map(p => `<li>${p}</li>`).join('')}</ul>`;
+      } else {
+        document.getElementById('precondiciones').innerHTML = '<p><em>Sin precondiciones</em></p>';
+      }
+      const mermaidNodes = document.querySelectorAll('.mermaid');
+      if (mermaidNodes.length && window.mermaid) {
+        window.mermaid.run({ nodes: mermaidNodes });
+      }
+    }
+
+    function renderIndice(d) {
+      const archivos = d.archivosIntercambio || [];
+      const tieneArchivos = archivos.length > 0;
+      const bloques = d.detalleModificaciones || [];
+      const subtitulosMod = bloques.filter(b => b.titulo).map(b => b.titulo);
+      let html = '<h2>Índice</h2><ul>';
+      html += '<li><a href="#sec-objetivos">Objetivos del desarrollo</a></li>';
+      html += '<li><a href="#sec-alcance">Alcance</a><ul class="indice-sub">';
+      html += '<li><a href="#sec-alcance-modifica">Se modifica</a></li>';
+      html += '<li><a href="#sec-alcance-no-modifica">No se modifica</a></li></ul></li>';
+      html += '<li><a href="#sec-funcionalidad-actual">Funcionalidad actual</a></li>';
+      html += '<li><a href="#sec-modificaciones">Detalle de modificaciones</a>';
+      if (subtitulosMod.length > 0 || tieneArchivos) {
+        html += '<ul class="indice-sub">';
+        subtitulosMod.forEach((t, i) => { html += `<li><a href="#sec-mod-${i}">${t}</a></li>`; });
+        if (tieneArchivos) html += '<li><a href="#sec-archivos-intercambio">Formatos de archivos de intercambio</a></li>';
+        html += '</ul>';
+      }
+      html += '</li>';
+      html += '<li><a href="#sec-casos-uso">Casos de uso</a></li>';
+      html += '<li><a href="#sec-definiciones">Definiciones</a></li>';
+      html += '<li><a href="#sec-validaciones">Validaciones y mensajes</a></li>';
+      html += '<li><a href="#sec-precondiciones">Precondiciones</a></li>';
+      html += '</ul>';
+      document.getElementById('indice').innerHTML = html;
+    }
+
+    function renderBloques(bloques) {
+      if (!bloques || bloques.length === 0) return '<p><em>Sin contenido</em></p>';
+      return bloques.map(b => {
+        if (b.tipo === 'imagen') return `<div class="content-block"><img src="${b.src || ''}" alt="${b.alt || ''}"></div>`;
+        if (b.tipo === 'mermaid') {
+          const code = (b.contenido || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          return `<div class="content-block mermaid-container"><pre class="mermaid">${code}</pre></div>`;
+        }
+        return `<div class="content-block"><p>${b.contenido || ''}</p></div>`;
+      }).join('');
+    }
+
+    function renderBloquesConSubtitulos(bloques) {
+      if (!bloques || bloques.length === 0) return '<p><em>Sin contenido</em></p>';
+      return bloques.map((b, i) => {
+        const tituloHtml = b.titulo ? `<h3 id="sec-mod-${i}">${b.titulo}</h3>` : '';
+        let contenido = '';
+        if (b.tipo === 'imagen') {
+          contenido = `<div class="content-block"><img src="${b.src || ''}" alt="${b.alt || ''}"></div>`;
+        } else if (b.tipo === 'mermaid') {
+          const code = (b.contenido || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          contenido = `<div class="content-block mermaid-container"><pre class="mermaid">${code}</pre></div>`;
+        } else {
+          contenido = `<div class="content-block"><p>${b.contenido || ''}</p></div>`;
+        }
+        return `<div class="modificacion-seccion">${tituloHtml}${contenido}</div>`;
+      }).join('');
+    }
+
+    async function init() {
+      while (!window.mermaid) await new Promise(r => setTimeout(r, 50));
+      let data = {};
+      if (typeof DOCUMENTO_AF_DATA !== 'undefined') {
+        data = DOCUMENTO_AF_DATA;
+      } else {
+        const urlParams = new URLSearchParams(window.location.search);
+        const jsonUrl = urlParams.get('json');
+        if (jsonUrl) {
+          try { const r = await fetch(jsonUrl); data = await r.json(); } catch (err) { console.error('Error cargando JSON:', err); }
+        }
+      }
+      renderDocument(data);
+    }
+    init();
+  </script>
+</body>
+</html>
