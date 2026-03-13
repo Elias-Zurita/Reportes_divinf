@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Skills de Desarrollo con IA — Software Factory | Loan Software</title>
+  <link rel="stylesheet" href="swf_portal.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%231E478A'/%3E%3Cstop offset='100%25' stop-color='%233B82F6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M10 10L5 16l5 6' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M22 10l5 6-5 6' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M18 8l-4 16' stroke='rgba(255,255,255,0.6)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<div class="presentation">
+
+  <!-- HEADER -->
+  <header class="pres-header">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Division Informatica" class="logo-icon-svg" />
+      <div class="logo-text-group">
+        <span class="logo-company">Division Informatica</span>
+        <span class="logo-loan">LOAN</span>
+        <span class="logo-software">SOFTWARE</span>
+      </div>
+    </div>
+
+    <div class="pres-context-badge">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <path d="M4 4L2 6.5 4 9" stroke="#3B82F6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9 4l2 2.5L9 9" stroke="#3B82F6" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7.5 3l-2 7" stroke="#3B82F6" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      Proyecto IA - Software Factory
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="header-right-group">
+      <a href="main_portal.html" class="back-to-portal-btn" title="Volver al portal de areas">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Portal Principal
+      </a>
+      <div class="slide-counter">
+        <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">7</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- SLIDES -->
+  <main class="slides-container" id="slidesContainer">
+
+    <!-- SLIDE 1 - PORTADA -->
+    <section class="slide slide-gradient active" data-slide="1">
+      <div class="cover-bg-circles">
+        <div class="cover-circle cover-circle-1"></div>
+        <div class="cover-circle cover-circle-2"></div>
+        <div class="cover-circle cover-circle-3"></div>
+      </div>
+      <div class="cover-content">
+        <div class="cover-badge">
+          <span class="cover-badge-dot"></span>
+          <span class="cover-badge-text">Division Informatica - Innovacion IA - 2026</span>
+        </div>
+        <h1 class="cover-title">
+          Skills de Desarrollo<br/>
+          <em>Asistidos por IA</em>
+        </h1>
+        <p class="cover-subtitle">
+          Un flujo completo que arranca desde el documento funcional de AF y automatiza el desarrollo, testing, revision y versionado del producto.
+        </p>
+        <div class="cover-meta">
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Area</span>
+            <span class="cover-meta-value">Software Factory</span>
+          </div>
+          <div class="cover-divider"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Stack</span>
+            <span class="cover-meta-value">VB.NET / N-Tier</span>
+          </div>
+          <div class="cover-divider"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Skills</span>
+            <span class="cover-meta-value">5 Capacidades</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 - EL FLUJO COMPLETO -->
+    <section class="slide slide-white" data-slide="2">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag">El Flujo</span>
+          <h2 class="slide-h1">Del documento funcional al <span>release</span></h2>
+          <p class="slide-lead">El ciclo completo de desarrollo asistido por IA, desde que AF entrega el DCR hasta que se publica la version en Gitea.</p>
+        </div>
+
+        <div class="flow-pipeline slide-content-anim">
+          <div class="flow-step stagger-item">
+            <div class="flow-step-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706);">📄</div>
+            <div class="flow-step-content">
+              <div class="flow-step-label">Input</div>
+              <div class="flow-step-title">Documento Funcional</div>
+              <div class="flow-step-desc">DCR generado por AF con IA</div>
+            </div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step stagger-item">
+            <div class="flow-step-icon" style="background: var(--gradient-swf);">🏗️</div>
+            <div class="flow-step-content">
+              <div class="flow-step-label">Skill #1</div>
+              <div class="flow-step-title">Desarrollo</div>
+              <div class="flow-step-desc">Codigo N-capas completo</div>
+            </div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step stagger-item">
+            <div class="flow-step-icon" style="background: linear-gradient(135deg, #10B981, #059669);">🧪</div>
+            <div class="flow-step-content">
+              <div class="flow-step-label">Skill #2</div>
+              <div class="flow-step-title">Testing</div>
+              <div class="flow-step-desc">Tests de integracion</div>
+            </div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step stagger-item">
+            <div class="flow-step-icon" style="background: linear-gradient(135deg, #8B5CF6, #7C3AED);">👁️</div>
+            <div class="flow-step-content">
+              <div class="flow-step-label">Skill #3</div>
+              <div class="flow-step-title">Code Review</div>
+              <div class="flow-step-desc">Revision de PR</div>
+            </div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step stagger-item">
+            <div class="flow-step-icon" style="background: linear-gradient(135deg, #F97316, #EA580C);">🔀</div>
+            <div class="flow-step-content">
+              <div class="flow-step-label">Skill #4</div>
+              <div class="flow-step-title">Merge</div>
+              <div class="flow-step-desc">Resolucion de conflictos</div>
+            </div>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step stagger-item">
+            <div class="flow-step-icon" style="background: linear-gradient(135deg, #EF4444, #DC2626);">🚀</div>
+            <div class="flow-step-content">
+              <div class="flow-step-label">Skill #5</div>
+              <div class="flow-step-title">Version</div>
+              <div class="flow-step-desc">Release en Gitea</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3 - SKILL PRINCIPAL: DESARROLLO -->
+    <section class="slide slide-gradient" data-slide="3">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag" style="background:rgba(255,255,255,0.2);color:white;">Skill Principal</span>
+          <h2 class="slide-h1 white"><span style="color:#63D6B8;">Desarrollo</span> de Funcionalidades</h2>
+          <p class="slide-lead white">El orquestador que toma el documento funcional de AF y genera codigo completo en arquitectura N-capas.</p>
+        </div>
+        <div class="dev-features slide-content-anim">
+          <div class="dev-feature-row">
+            <div class="dev-feature stagger-item">
+              <span class="dev-feature-icon">📄</span>
+              <div class="dev-feature-text">
+                <strong>Lee el DCR de AF</strong>
+                <span>Endpoints, reglas de negocio, excepciones, cambios en BD</span>
+              </div>
+            </div>
+            <div class="dev-feature stagger-item">
+              <span class="dev-feature-icon">🗄️</span>
+              <div class="dev-feature-text">
+                <strong>Genera scripts SQL</strong>
+                <span>Nomenclatura: [TICKET]_[VERSION]_[SEQ]_[TIPO].sql</span>
+              </div>
+            </div>
+          </div>
+          <div class="dev-feature-row">
+            <div class="dev-feature stagger-item">
+              <span class="dev-feature-icon">🏗️</span>
+              <div class="dev-feature-text">
+                <strong>Codigo N-Capas</strong>
+                <span>Controllers, Administradores, Entidades, AccesoDatos</span>
+              </div>
+            </div>
+            <div class="dev-feature stagger-item">
+              <span class="dev-feature-icon">✅</span>
+              <div class="dev-feature-text">
+                <strong>Compila con MSBuild</strong>
+                <span>Ciclo de correccion hasta build exitoso</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dev-arch slide-content-anim">
+          <div class="arch-title">Arquitectura generada</div>
+          <div class="arch-layers">
+            <div class="arch-layer">Presentacion<span>Controllers, DTOs</span></div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-layer">Negocios<span>Administradores</span></div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-layer">Entidades<span>e{Nombre}, i{Nombre}</span></div>
+            <div class="arch-arrow">↓</div>
+            <div class="arch-layer">Datos<span>AccesoDatos{Entidad}</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 - LOS OTROS 4 SKILLS -->
+    <section class="slide slide-light" data-slide="4">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag">Skills Complementarios</span>
+          <h2 class="slide-h1">Completando el <span>ciclo</span></h2>
+        </div>
+        <div class="skills-compact slide-content-anim">
+
+          <div class="skill-compact stagger-item">
+            <div class="skill-compact-header">
+              <span class="skill-compact-icon" style="background:var(--success-100);color:var(--success-700);">🧪</span>
+              <div class="skill-compact-title">Testing Integracion</div>
+            </div>
+            <div class="skill-compact-body">
+              Genera tests VB.NET heredando de <code>TestBase</code>. Cubre CRUD completo, casos negativos y validaciones. Lee el documento funcional y crea matriz de cobertura automatica.
+            </div>
+          </div>
+
+          <div class="skill-compact stagger-item">
+            <div class="skill-compact-header">
+              <span class="skill-compact-icon" style="background:var(--brand-purple-100);color:var(--brand-purple-700);">👁️</span>
+              <div class="skill-compact-title">Code Review</div>
+            </div>
+            <div class="skill-compact-body">
+              Revisa PRs de Gitea validando: nomenclatura (prefijos s, e, o, dt), arquitectura N-Tier, conexiones cerradas en Finally, DataContract/DataMember en entidades.
+            </div>
+          </div>
+
+          <div class="skill-compact stagger-item">
+            <div class="skill-compact-header">
+              <span class="skill-compact-icon" style="background:var(--warning-100);color:var(--warning-700);">🔀</span>
+              <div class="skill-compact-title">Merge Conflicts</div>
+            </div>
+            <div class="skill-compact-body">
+              Resuelve conflictos analizando git log de ambas ramas y contexto de Jira. <strong>Regla critica:</strong> nunca usa <code>--ours/--theirs</code> en codigo, solo edita marcadores.
+            </div>
+          </div>
+
+          <div class="skill-compact stagger-item">
+            <div class="skill-compact-header">
+              <span class="skill-compact-icon" style="background:var(--error-100);color:var(--error-700);">🚀</span>
+              <div class="skill-compact-title">Cambio Version</div>
+            </div>
+            <div class="skill-compact-body">
+              Detecta ultima version en Gitea, modifica <code>Comun/Version.vb</code>, hace commit con tag de Jira, push y crea release automaticamente via MCP.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 - ANÁLISIS TÉCNICO (OTRO CIRCUITO) -->
+    <section class="slide slide-light" data-slide="5">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag" style="background: var(--brand-purple-100); color: var(--brand-purple-700);">Otro Circuito</span>
+          <h2 class="slide-h1">Analisis <span>Tecnico</span></h2>
+          <p class="slide-lead">Investigación de tickets y bugs — un flujo separado del desarrollo de funcionalidades.</p>
+        </div>
+
+        <div class="at-flow slide-content-anim">
+          <div class="at-flow-step stagger-item">
+            <div class="at-flow-icon">🎫</div>
+            <div class="at-flow-label">Ticket Jira</div>
+            <div class="at-flow-desc">Lee summary, descripción, comentarios y adjuntos</div>
+          </div>
+          <div class="at-flow-arrow">→</div>
+          <div class="at-flow-step stagger-item">
+            <div class="at-flow-icon">🏷️</div>
+            <div class="at-flow-label">Clasificación</div>
+            <div class="at-flow-desc">BUG, CONSULTA, MEJORA, SCRIPT, ERROR_DATOS...</div>
+          </div>
+          <div class="at-flow-arrow">→</div>
+          <div class="at-flow-step stagger-item">
+            <div class="at-flow-icon">🔍</div>
+            <div class="at-flow-label">Investigación</div>
+            <div class="at-flow-desc">Código en Gitea + BD si hay datos específicos</div>
+          </div>
+          <div class="at-flow-arrow">→</div>
+          <div class="at-flow-step stagger-item">
+            <div class="at-flow-icon">📋</div>
+            <div class="at-flow-label">Informe AT</div>
+            <div class="at-flow-desc">Causa raíz, solución y nota en Jira</div>
+          </div>
+        </div>
+
+        <div class="at-details slide-content-anim">
+          <div class="at-detail-col stagger-item">
+            <div class="at-detail-title">Capas investigadas</div>
+            <ul class="at-detail-list">
+              <li><code>ReglasNegocios/</code> Administradores</li>
+              <li><code>Entidades/</code> Dominio.vb</li>
+              <li><code>ServiciosAPICore/</code> Controllers</li>
+              <li><code>WebResponsive/</code> Páginas .aspx</li>
+            </ul>
+          </div>
+          <div class="at-detail-col stagger-item">
+            <div class="at-detail-title">Output generado</div>
+            <ul class="at-detail-list">
+              <li>Clasificación técnica del ticket</li>
+              <li>Archivos y métodos verificados</li>
+              <li>Diagnóstico con causa raíz</li>
+              <li>Solución o respuesta técnica</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 - BENEFICIOS -->
+    <section class="slide slide-white" data-slide="6">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag success">Resultados</span>
+          <h2 class="slide-h1">Impacto en el <span>equipo</span></h2>
+        </div>
+        <div class="benefits-compact slide-content-anim">
+          <div class="benefit-row">
+            <div class="benefit-compact stagger-item">
+              <div class="benefit-compact-stat">Auto</div>
+              <div class="benefit-compact-title">Doc → Codigo</div>
+              <div class="benefit-compact-desc">Del DCR al codigo N-capas sin intervencion manual</div>
+            </div>
+            <div class="benefit-compact stagger-item">
+              <div class="benefit-compact-stat">100%</div>
+              <div class="benefit-compact-title">Cobertura tests</div>
+              <div class="benefit-compact-desc">Tests generados cubren todos los escenarios del DCR</div>
+            </div>
+            <div class="benefit-compact stagger-item">
+              <div class="benefit-compact-stat">0</div>
+              <div class="benefit-compact-title">Errores N-Tier</div>
+              <div class="benefit-compact-desc">Code review detecta violaciones antes del merge</div>
+            </div>
+          </div>
+          <div class="benefit-row">
+            <div class="benefit-compact stagger-item">
+              <div class="benefit-compact-stat">Seguro</div>
+              <div class="benefit-compact-title">Merges</div>
+              <div class="benefit-compact-desc">Resolucion con contexto, sin perdida de codigo</div>
+            </div>
+            <div class="benefit-compact stagger-item">
+              <div class="benefit-compact-stat">1-Click</div>
+              <div class="benefit-compact-title">Release</div>
+              <div class="benefit-compact-desc">Version, commit, push y release automatico</div>
+            </div>
+            <div class="benefit-compact stagger-item">
+              <div class="benefit-compact-stat">Foco</div>
+              <div class="benefit-compact-title">Valor</div>
+              <div class="benefit-compact-desc">Equipo en problemas complejos, IA en lo repetitivo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7 - PRÓXIMAS MEJORAS -->
+    <section class="slide slide-light" data-slide="7">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag" style="background: var(--warning-100); color: var(--warning-700);">Roadmap</span>
+          <h2 class="slide-h1">Proximas <span>Mejoras</span></h2>
+          <p class="slide-lead">Evolución planificada del ecosistema de skills de Software Factory.</p>
+        </div>
+
+        <div class="roadmap-grid slide-content-anim">
+
+          <div class="roadmap-item stagger-item">
+            <div class="roadmap-icon">🏭</div>
+            <div class="roadmap-content">
+              <div class="roadmap-title">Skill Factory</div>
+              <div class="roadmap-desc">
+                Desarrollo y mantenimiento/evolución de <strong>nuevas aplicaciones</strong>. Un skill genérico para crear apps desde cero siguiendo los estándares de arquitectura.
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-item stagger-item">
+            <div class="roadmap-icon">💳</div>
+            <div class="roadmap-content">
+              <div class="roadmap-title">Desarrollo-Clear</div>
+              <div class="roadmap-desc">
+                Skill específico para el desarrollo de <strong>Clear</strong>, enfocado en personas con conocimiento funcional. Simplifica la curva de aprendizaje técnico.
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-item stagger-item">
+            <div class="roadmap-icon">🔄</div>
+            <div class="roadmap-content">
+              <div class="roadmap-title">Iteración del Skill Desarrollo</div>
+              <div class="roadmap-desc">
+                Mejora continua del skill principal basado en feedback y casos de uso reales. Optimización de prompts y manejo de edge cases.
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-item stagger-item">
+            <div class="roadmap-icon">🛒</div>
+            <div class="roadmap-content">
+              <div class="roadmap-title">Ecommerce + Servicios Genéricos</div>
+              <div class="roadmap-desc">
+                Incorporar las apps <strong>Ecommerce</strong> y <strong>Servicios Genéricos</strong> al flujo de IA, extendiendo la cobertura del desarrollo asistido.
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-item roadmap-item-highlight stagger-item">
+            <div class="roadmap-icon" style="background: var(--brand-blue-100);">🔄</div>
+            <div class="roadmap-content">
+              <div class="roadmap-title">AgentSync</div>
+              <div class="roadmap-desc">
+                Aplicación que <strong>distribuye los skills</strong> a todos los desarrolladores y los mantiene <strong>actualizados</strong> automáticamente. Un solo punto de gestión.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NAVIGATION -->
+  <nav class="pres-nav">
+    <button class="nav-btn" id="prevBtn" disabled title="Anterior">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M10.5 2L5 8l5.5 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="nav-dots" id="navDots"></div>
+    <button class="nav-btn" id="nextBtn" title="Siguiente">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M5.5 2L11 8l-5.5 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </nav>
+
+  <div class="keyboard-hint">Flechas para navegar - F para pantalla completa</div>
+
+</div>
+
+<script src="swf_portal.js"></script>
+</body>
+</html>
