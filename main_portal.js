@@ -90,7 +90,7 @@
 
   const countEl = document.getElementById('countActive');
   if (countEl) {
-    setTimeout(() => animateCounter(countEl, 1, 600), 500);
+    setTimeout(() => animateCounter(countEl, 3, 600), 500);
   }
 
 })();
