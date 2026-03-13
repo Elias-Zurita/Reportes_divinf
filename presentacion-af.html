@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Análisis Funcional con IA — División Informática | Loan Software</title>
+  <link rel="stylesheet" href="reporte_proyecto_ia.css" />
+  <style>
+    /* AF-specific overrides */
+    .orch-skills-badge { margin-top: var(--space-md); display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+    .orch-skill-chip { font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 99px; background: var(--brand-purple-100); color: var(--brand-purple-700); border: 1px solid var(--brand-purple-200); }
+    .agents-two-squares { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); max-width: 1000px; margin: 0 auto; }
+    .agent-square { background: #fff; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid var(--grey-300); box-shadow: var(--shadow-md); }
+    .agent-square-header { padding: var(--space-lg); display: flex; flex-direction: column; align-items: center; gap: 4px; color: #fff; }
+    .agent-square-icon { font-size: 32px; }
+    .agent-square-title { font-size: 18px; font-weight: 800; }
+    .agent-square-sub { font-size: 12px; opacity: 0.85; }
+    .agent-square-body { padding: var(--space-lg); }
+    .agent-square-desc { font-size: 13px; color: var(--grey-600); margin-bottom: var(--space-md); line-height: 1.5; }
+    .agent-square-skills { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 12px; }
+    .agent-square-skills strong { margin-right: 4px; color: var(--grey-700); }
+    .skill-tag { font-size: 10px; padding: 2px 8px; border-radius: 4px; background: var(--grey-100); color: var(--grey-700); font-weight: 600; }
+    /* Flujo HTML (reemplaza Mermaid) */
+    .flow-html-container { width: 100%; max-width: 1100px; margin: 0 auto; padding: var(--space-lg); }
+    .flow-html-row { display: flex; align-items: center; justify-content: center; gap: var(--space-sm); flex-wrap: wrap; margin-bottom: var(--space-md); }
+    .flow-html-subgraph { display: flex; flex-direction: column; align-items: center; padding: var(--space-lg); border-radius: var(--radius-lg); border: 2px solid var(--brand-purple-300); background: linear-gradient(135deg, var(--brand-purple-100) 0%, #fff 100%); }
+    .flow-html-subgraph-title { font-size: 13px; font-weight: 800; color: var(--brand-purple-700); margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 0.08em; }
+    .flow-html-nodes { display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; justify-content: center; }
+    .flow-html-node { padding: 10px 18px; border-radius: var(--radius-md); font-size: 13px; font-weight: 700; text-align: center; white-space: nowrap; min-width: 0; }
+    .flow-html-node.input { background: var(--info-100); border: 2px solid var(--info-500); color: var(--info-700); }
+    .flow-html-node.process { background: var(--brand-blue-100); border: 2px solid var(--brand-blue-500); color: var(--brand-blue-800); }
+    .flow-html-node.decision { background: var(--warning-100); border: 2px solid var(--warning-500); color: var(--warning-700); padding: 10px 14px; }
+    .flow-html-node.loop { background: var(--error-100); border: 2px solid var(--error-500); color: var(--error-700); }
+    .flow-html-node.output { background: var(--success-100); border: 2px solid var(--success-500); color: var(--success-700); }
+    .flow-html-arrow { color: var(--brand-purple-400); font-size: 20px; flex-shrink: 0; }
+    .flow-html-arrow-down { color: var(--brand-purple-400); font-size: 16px; margin: 2px 0; }
+    .flow-html-branch { display: flex; align-items: center; gap: var(--space-sm); flex-wrap: wrap; }
+    .flow-html-label { font-size: 11px; font-weight: 600; color: var(--grey-500); margin-top: 2px; }
+    .flow-html-connector { display: flex; align-items: center; justify-content: center; gap: 8px; margin: var(--space-sm) 0; }
+    .flow-html-connector-line { width: 2px; min-height: 24px; background: linear-gradient(180deg, var(--brand-purple-300), var(--brand-purple-500)); border-radius: 2px; }
+    .flow-html-orch-row { display: flex; align-items: center; justify-content: center; gap: var(--space-md); flex-wrap: wrap; margin-top: var(--space-lg); }
+    .flow-html-orch-box { padding: 12px 24px; border-radius: var(--radius-lg); background: var(--gradient-loan); color: #fff; font-size: 15px; font-weight: 800; box-shadow: var(--shadow-brand); }
+    .flow-html-orch-arrow { font-size: 24px; color: var(--brand-purple-500); }
+    .flow-html-output-box { padding: 12px 20px; border-radius: var(--radius-lg); background: var(--success-100); border: 2px solid var(--success-500); color: var(--success-700); font-size: 14px; font-weight: 800; }
+    /* DCR IO - sin overflow */
+    .dcr-io-layout { display: flex; align-items: center; justify-content: center; gap: var(--space-lg); flex-wrap: wrap; margin-bottom: var(--space-xl); }
+    .dcr-io-node { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+    .dcr-io-box { width: 160px; min-height: 90px; padding: var(--space-md); border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; text-align: center; box-sizing: border-box; overflow: hidden; }
+    .dcr-io-box .dcr-io-icon { font-size: 24px; flex-shrink: 0; }
+    .dcr-io-box .dcr-io-title { font-size: 11px; font-weight: 700; color: inherit; line-height: 1.2; word-break: break-word; overflow-wrap: break-word; }
+    .dcr-io-box .dcr-io-sub { font-size: 10px; opacity: 0.85; line-height: 1.2; word-break: break-word; }
+    .dcr-io-box.input { background: linear-gradient(135deg, var(--info-100) 0%, #fff 100%); border: 2px solid var(--info-500); color: var(--info-700); }
+    .dcr-io-box.process { background: var(--gradient-loan); border: none; color: #fff; }
+    .dcr-io-box.output { background: linear-gradient(135deg, var(--warning-100) 0%, #fff 100%); border: 2px solid var(--warning-500); color: var(--grey-800); }
+    .dcr-io-arrow { flex-shrink: 0; }
+    .dcr-io-note { text-align: center; padding: var(--space-md); background: var(--grey-100); border-radius: var(--radius-md); font-size: 13px; color: var(--grey-600); max-width: 600px; margin: 0 auto; }
+    .dcr-io-note code { background: var(--grey-200); padding: 2px 8px; border-radius: 4px; font-family: monospace; }
+    /* Tipos de requerimiento */
+    .tipos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); max-width: 1000px; margin: 0 auto var(--space-xl); }
+    .tipo-card { background: #fff; border-radius: var(--radius-lg); padding: var(--space-md); border: 1px solid var(--grey-300); text-align: center; transition: border-color var(--transition-fast), box-shadow var(--transition-fast); }
+    .tipo-card:hover { border-color: var(--brand-purple-300); box-shadow: var(--shadow-md); }
+    .tipo-icon { font-size: 28px; display: block; margin-bottom: 6px; }
+    .tipo-name { font-size: 13px; font-weight: 700; color: var(--grey-900); margin-bottom: 4px; }
+    .tipo-desc { font-size: 11px; color: var(--grey-600); line-height: 1.3; }
+    .tipos-combo { display: flex; justify-content: center; }
+    .tipos-combo-box { background: var(--brand-purple-100); border: 2px solid var(--brand-purple-300); border-radius: var(--radius-lg); padding: var(--space-md) var(--space-lg); font-size: 14px; color: var(--brand-purple-800); }
+    .tipos-combo-label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; color: var(--brand-purple-600); }
+    .output-example { margin-top: var(--space-xl); padding: var(--space-lg); background: var(--grey-100); border-radius: var(--radius-lg); border: 1px solid var(--grey-300); text-align: center; }
+    .output-example a { display: inline-flex; align-items: center; gap: 8px; padding: var(--space-md) var(--space-xl); background: var(--gradient-loan); color: #fff; border-radius: var(--radius-full); font-weight: 700; text-decoration: none; transition: transform var(--transition-fast), box-shadow var(--transition-fast); }
+    .output-example a:hover { transform: scale(1.05); box-shadow: var(--shadow-brand); }
+    /* Hitos una columna */
+    .hitos-single-col { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-md); }
+    .hito-item { display: flex; align-items: center; gap: var(--space-md); padding: var(--space-md) var(--space-lg); background: #fff; border-radius: var(--radius-lg); border: 1px solid var(--grey-300); box-shadow: var(--shadow-sm); transition: border-color var(--transition-fast), box-shadow var(--transition-fast); }
+    .hito-item:hover { border-color: var(--brand-purple-300); box-shadow: var(--shadow-md); }
+    .hito-icon { font-size: 28px; flex-shrink: 0; }
+    .hito-title { font-size: 15px; font-weight: 700; color: var(--grey-900); margin-bottom: 2px; }
+    .hito-desc { font-size: 12px; color: var(--grey-600); line-height: 1.35; }
+    @media (max-width: 900px) { .agents-two-squares { grid-template-columns: 1fr; } .dcr-io-layout { flex-direction: column; } .flow-html-nodes { flex-direction: column; } .flow-html-orch-row { flex-direction: column; } .tipos-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='32' y2='32' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0%25' stop-color='%23303689'/%3E%3Cstop offset='100%25' stop-color='%235B247A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='8' cy='16' r='2.5' fill='rgba(255,255,255,0.9)'/%3E%3Ccircle cx='16' cy='8' r='2.5' fill='rgba(255,255,255,0.9)'/%3E%3Ccircle cx='16' cy='24' r='2.5' fill='rgba(255,255,255,0.9)'/%3E%3Ccircle cx='24' cy='16' r='2.5' fill='rgba(255,255,255,0.9)'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='white'/%3E%3Cline x1='8' y1='16' x2='16' y2='16' stroke='rgba(255,255,255,0.6)' stroke-width='1.4'/%3E%3Cline x1='16' y1='8' x2='16' y2='16' stroke='rgba(255,255,255,0.6)' stroke-width='1.4'/%3E%3Cline x1='16' y1='16' x2='16' y2='24' stroke='rgba(255,255,255,0.6)' stroke-width='1.4'/%3E%3Cline x1='16' y1='16' x2='24' y2='16' stroke='rgba(255,255,255,0.6)' stroke-width='1.4'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+<div class="presentation">
+
+  <!-- ─────────────────── HEADER ─────────────────── -->
+  <header class="pres-header">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="División Informática" class="logo-icon-svg" />
+      <div class="logo-text-group">
+        <span class="logo-company">División Informática</span>
+        <span class="logo-loan">LOAN</span>
+        <span class="logo-software">SOFTWARE</span>
+      </div>
+    </div>
+
+    <div class="pres-context-badge">
+      <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+        <circle cx="6.5" cy="6.5" r="2.5" fill="#636ACE"/>
+        <circle cx="2" cy="6.5" r="1.5" fill="#BEC4FF"/>
+        <circle cx="11" cy="6.5" r="1.5" fill="#BEC4FF"/>
+        <circle cx="6.5" cy="2" r="1.5" fill="#BEC4FF"/>
+        <circle cx="6.5" cy="11" r="1.5" fill="#BEC4FF"/>
+        <line x1="2" y1="6.5" x2="6.5" y2="6.5" stroke="#636ACE" stroke-width="0.8"/>
+        <line x1="6.5" y1="2" x2="6.5" y2="6.5" stroke="#636ACE" stroke-width="0.8"/>
+        <line x1="6.5" y1="6.5" x2="11" y2="6.5" stroke="#636ACE" stroke-width="0.8"/>
+        <line x1="6.5" y1="6.5" x2="6.5" y2="11" stroke="#636ACE" stroke-width="0.8"/>
+      </svg>
+      Proyecto IA · Análisis Funcional
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <div class="header-right-group">
+      <a href="main_portal.html" class="back-to-portal-btn" title="Volver al portal de áreas">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Portal Principal
+      </a>
+      <div class="slide-counter">
+        <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">11</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─────────────────── SLIDES ─────────────────── -->
+  <main class="slides-container" id="slidesContainer">
+
+    <!-- SLIDE 1 — PORTADA -->
+    <section class="slide slide-gradient active" data-slide="1">
+      <div class="cover-bg-circles">
+        <div class="cover-circle cover-circle-1"></div>
+        <div class="cover-circle cover-circle-2"></div>
+        <div class="cover-circle cover-circle-3"></div>
+      </div>
+      <div class="cover-content">
+        <div class="cover-badge">
+          <span class="cover-badge-dot"></span>
+          <span class="cover-badge-text">División Informática · Innovación IA · 2026</span>
+        </div>
+        <h1 class="cover-title">
+          <em>Análisis Funcional</em><br/>
+          con IA
+        </h1>
+        <p class="cover-subtitle">
+          Generación de DCRs desde material de relevamiento y producción de documentos funcionales presentables al cliente.
+        </p>
+        <div class="cover-meta">
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Producto</span>
+            <span class="cover-meta-value">Loan Software</span>
+          </div>
+          <div class="cover-divider"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Área</span>
+            <span class="cover-meta-value">Análisis Funcional</span>
+          </div>
+          <div class="cover-divider"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Tecnología</span>
+            <span class="cover-meta-value">Inteligencia Artificial</span>
+          </div>
+          <div class="cover-divider"></div>
+          <div class="cover-meta-item">
+            <span class="cover-meta-label">Año</span>
+            <span class="cover-meta-value">2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 — PROCESO DE ANÁLISIS ITERATIVO (DISCOVERY) -->
+    <section class="slide slide-light" data-slide="2">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag">Fase Discovery</span>
+          <h2 class="slide-h1">Proceso de <span>análisis iterativo</span> previo a la orquestación</h2>
+          <p class="slide-lead">El comando /analisis valida el input antes de invocar al Orquestador. Si hay dudas, genera preguntas y espera respuesta del usuario.</p>
+        </div>
+        <div class="flow-diagram slide-content-anim">
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box">
+              <div class="flow-step-num">1</div>
+              <span class="flow-step-icon">📂</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title">Input: carpeta o archivo</div>
+                <div class="flow-step-desc">Material de relevamiento: minutas, propuestas, requerimiento formal, apuntes.</div>
+              </div>
+              <span class="flow-step-time">Input</span>
+            </div>
+          </div>
+          <div class="flow-connector"><div class="flow-connector-line"><div class="flow-connector-dot"></div></div></div>
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box">
+              <div class="flow-step-num">2</div>
+              <span class="flow-step-icon">✓</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title">Validar fuente y evaluar tipo</div>
+                <div class="flow-step-desc">Existencia, legibilidad. Clasificar en uno o más tipos: Nueva API, Integración, Funcional, Rendimiento, Usabilidad, Seguridad, Automatización. Un requerimiento puede combinar varios tipos.</div>
+              </div>
+              <span class="flow-step-time">Validación</span>
+            </div>
+          </div>
+          <div class="flow-connector"><div class="flow-connector-line"><div class="flow-connector-dot"></div></div></div>
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box">
+              <div class="flow-step-num">3</div>
+              <span class="flow-step-icon">📋</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title">Criterios universales y por tipo</div>
+                <div class="flow-step-desc">Universales: identificación, objetivo, producto, alcance, sistemas afectados. Por tipo: cada uno exige datos extra (Integración→origen/destino; API→campos; Funcional→flujos y RN).</div>
+              </div>
+              <span class="flow-step-time">Criterios</span>
+            </div>
+          </div>
+          <div class="flow-connector"><div class="flow-connector-line"><div class="flow-connector-dot"></div></div></div>
+          <div class="flow-step stagger-item">
+            <div class="flow-step-box highlight">
+              <div class="flow-step-num">?</div>
+              <span class="flow-step-icon">🔄</span>
+              <div class="flow-step-content">
+                <div class="flow-step-title">¿Completo?</div>
+                <div class="flow-step-desc">Si hay dudas → genera preguntas, usuario responde, re-ejecutar /analisis. Si está completo → invoca Orquestador.</div>
+              </div>
+              <span class="flow-step-time">Iterativo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3 — TIPOS DE REQUERIMIENTO -->
+    <section class="slide slide-white" data-slide="3">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag purple">Tipos de requerimiento</span>
+          <h2 class="slide-h1">Clasificación y <span>combinación</span></h2>
+          <p class="slide-lead">El sistema clasifica cada requerimiento en uno o más tipos. Un mismo requerimiento puede incluir varios tipos (ej: Integración + API).</p>
+        </div>
+        <div class="tipos-grid slide-content-anim">
+          <div class="tipo-card stagger-item">
+            <span class="tipo-icon">🔌</span>
+            <div class="tipo-name">Nueva API</div>
+            <div class="tipo-desc">Nuevo endpoint o servicio expuesto</div>
+          </div>
+          <div class="tipo-card stagger-item">
+            <span class="tipo-icon">🔗</span>
+            <div class="tipo-name">Integración</div>
+            <div class="tipo-desc">Conexión con sistema externo</div>
+          </div>
+          <div class="tipo-card stagger-item">
+            <span class="tipo-icon">⚙️</span>
+            <div class="tipo-name">Funcional</div>
+            <div class="tipo-desc">Cambio de lógica de negocio o flujo</div>
+          </div>
+          <div class="tipo-card stagger-item">
+            <span class="tipo-icon">⚡</span>
+            <div class="tipo-name">Rendimiento</div>
+            <div class="tipo-desc">Optimización, tiempos, concurrencia</div>
+          </div>
+          <div class="tipo-card stagger-item">
+            <span class="tipo-icon">👤</span>
+            <div class="tipo-name">Usabilidad</div>
+            <div class="tipo-desc">UX, flujos de usuario, feedback</div>
+          </div>
+          <div class="tipo-card stagger-item">
+            <span class="tipo-icon">🔒</span>
+            <div class="tipo-name">Seguridad</div>
+            <div class="tipo-desc">Auth, autorización, auditoría, cifrado</div>
+          </div>
+          <div class="tipo-card stagger-item">
+            <span class="tipo-icon">🤖</span>
+            <div class="tipo-name">Automatización</div>
+            <div class="tipo-desc">Proceso manual que pasa a automático</div>
+          </div>
+        </div>
+        <div class="tipos-combo stagger-item">
+          <div class="tipos-combo-box">
+            <span class="tipos-combo-label">Ejemplo de combinación:</span>
+            <strong>NPA-283</strong> = Integración + API (correlationId para rastreo con DataDog)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4 — AGENTE ORQUESTADOR CON SKILLS -->
+    <section class="slide slide-white" data-slide="4">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag purple">Orquestador</span>
+          <h2 class="slide-h1">El <span>agente orquestador</span> y sus skills</h2>
+          <p class="slide-lead">Analista Funcional Senior. Solicita información a Revisor de Código y Reglas de Negocio, propone la mejor solución y genera el DCR.</p>
+        </div>
+        <div class="orchestrator-layout slide-content-anim">
+          <div class="orch-center">
+            <div class="orch-pulse-ring orch-pulse-ring-1"></div>
+            <div class="orch-pulse-ring orch-pulse-ring-2"></div>
+            <div class="orch-pulse-ring orch-pulse-ring-3"></div>
+            <div class="orch-main-box">
+              <span class="orch-main-icon">🎯</span>
+              <span class="orch-main-title">Orquestador</span>
+              <span class="orch-main-sub">Analista Funcional Senior</span>
+            </div>
+            <div class="orch-skills-badge">
+              <span class="orch-skill-chip">mermaid-diagrams</span>
+            </div>
+          </div>
+          <div class="orch-responsibilities">
+            <div class="orch-resp-item stagger-item">
+              <span class="orch-resp-icon">📥</span>
+              <div>
+                <div class="orch-resp-title">Recibe input validado de /analisis</div>
+                <div class="orch-resp-desc">Ruta del requerimiento, tipo(s) detectado(s), producto y módulos afectados.</div>
+              </div>
+            </div>
+            <div class="orch-resp-item stagger-item">
+              <span class="orch-resp-icon">🔀</span>
+              <div>
+                <div class="orch-resp-title">Solicita información a RevisorCodigo y ReglasNegocios</div>
+                <div class="orch-resp-desc">Pasa contexto y recibe especificaciones técnicas y reglas de negocio.</div>
+              </div>
+            </div>
+            <div class="orch-resp-item stagger-item">
+              <span class="orch-resp-icon">💡</span>
+              <div>
+                <div class="orch-resp-title">Propone la mejor solución</div>
+                <div class="orch-resp-desc">Evalúa alternativas, prioriza enfoques y recomienda la opción más adecuada.</div>
+              </div>
+            </div>
+            <div class="orch-resp-item stagger-item">
+              <span class="orch-resp-icon">📄</span>
+              <div>
+                <div class="orch-resp-title">Genera el DCR</div>
+                <div class="orch-resp-desc">Consolida la información, incluye diagramas Mermaid (skill mermaid-diagrams) y emite el DCR en Markdown.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 — REVISOR CÓDIGO Y REGLAS NEGOCIO (2 CUADRADOS, SKILLS MENCIONADOS) -->
+    <section class="slide slide-light" data-slide="5">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag purple">Agentes especializados</span>
+          <h2 class="slide-h1">Revisor de Código y <span>Reglas de Negocio</span></h2>
+          <p class="slide-lead">Cada agente delega a skills especializados según tipo de requerimiento o módulo involucrado.</p>
+        </div>
+        <div class="agents-two-squares slide-content-anim">
+          <div class="agent-square stagger-item">
+            <div class="agent-square-header" style="background: linear-gradient(135deg, var(--brand-blue-500) 0%, var(--brand-blue-700) 100%);">
+              <span class="agent-square-icon">🔍</span>
+              <span class="agent-square-title">RevisorCodigo</span>
+              <span class="agent-square-sub">Relevamiento técnico</span>
+            </div>
+            <div class="agent-square-body">
+              <div class="agent-square-desc">Evalúa el tipo de requerimiento y activa skills según corresponda: API, Pantalla, Batch, Políticas, Artículo.</div>
+              <div class="agent-square-skills">
+                <strong>Skills:</strong>
+                <span class="skill-tag">entidades</span>
+                <span class="skill-tag">presentacion</span>
+                <span class="skill-tag">procesos-batch</span>
+                <span class="skill-tag">api</span>
+                <span class="skill-tag">loan-components</span>
+                <span class="skill-tag">loan-policies</span>
+                <span class="skill-tag">loan-profiles</span>
+                <span class="skill-tag">loan-articulo-formas-pago-solicitud</span>
+              </div>
+            </div>
+          </div>
+          <div class="agent-square stagger-item">
+            <div class="agent-square-header" style="background: linear-gradient(135deg, var(--brand-purple-500) 0%, var(--brand-purple-700) 100%);">
+              <span class="agent-square-icon">📋</span>
+              <span class="agent-square-title">ReglasNegocios</span>
+              <span class="agent-square-sub">Reglas de negocio e interfaz</span>
+            </div>
+            <div class="agent-square-body">
+              <div class="agent-square-desc">Evalúa los módulos involucrados y activa skills según corresponda: Cobranzas, Facturación, Producto, etc.</div>
+              <div class="agent-square-skills">
+                <strong>Skills:</strong>
+                <span class="skill-tag">loan-collections</span>
+                <span class="skill-tag">loan-debit</span>
+                <span class="skill-tag">loan-billing</span>
+                <span class="skill-tag">loan-settlement</span>
+                <span class="skill-tag">loan-transferred-portfolio</span>
+                <span class="skill-tag">loan-commercial-policies</span>
+                <span class="skill-tag">loan-articulo</span>
+                <span class="skill-tag">loan-commercial-plan</span>
+                <span class="skill-tag">loan-profiles</span>
+                <span class="skill-tag">loan-levels</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 — FLUJO HTML (SIN DOCUMENTO FUNCIONAL) -->
+    <section class="slide slide-white" data-slide="6">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag purple">Flujo completo</span>
+          <h2 class="slide-h1">Discovery → <span>Orquestación</span> → DCR</h2>
+          <p class="slide-lead">Flujo desde el input hasta la generación del DCR. El documento funcional se genera en un paso posterior con /documento-funcional.</p>
+        </div>
+        <div class="flow-html-container slide-content-anim">
+          <div class="flow-html-subgraph">
+            <div class="flow-html-subgraph-title">🔍 Fase Discovery — iterativa</div>
+            <div class="flow-html-nodes">
+              <div class="flow-html-node input">/Input/</div>
+              <span class="flow-html-arrow">→</span>
+              <div class="flow-html-node process">Validar fuente</div>
+              <span class="flow-html-arrow">→</span>
+              <div class="flow-html-node process">Evaluar tipo</div>
+              <span class="flow-html-arrow">→</span>
+              <div class="flow-html-node process">Criterios</div>
+              <span class="flow-html-arrow">→</span>
+              <div class="flow-html-node decision">¿Completo?</div>
+            </div>
+            <div class="flow-html-nodes" style="margin-top:12px;">
+              <div class="flow-html-branch">
+                <span class="flow-html-label">No</span>
+                <div class="flow-html-node loop">Generar Dudas</div>
+                <span class="flow-html-arrow">→</span>
+                <div class="flow-html-node loop">Usuario completa</div>
+                <span class="flow-html-arrow">→</span>
+                <span style="font-size:12px;color:var(--grey-500);">↺ vuelve a Validar</span>
+              </div>
+            </div>
+          </div>
+          <div class="flow-html-connector">
+            <div class="flow-html-connector-line"></div>
+            <span class="flow-html-label">Sí</span>
+          </div>
+          <div class="flow-html-subgraph" style="border-color:var(--brand-blue-400);">
+            <div class="flow-html-subgraph-title" style="color:var(--brand-blue-700);">⚙️ Fase Orquestación</div>
+            <div class="flow-html-orch-row" style="margin-top:0;">
+              <div class="flow-html-orch-box">Orquestador</div>
+              <span class="flow-html-orch-arrow">→</span>
+              <div class="flow-html-nodes">
+                <div class="flow-html-node process">RevisorCodigo</div>
+                <span style="font-size:14px;color:var(--grey-500);">+</span>
+                <div class="flow-html-node process">ReglasNegocios</div>
+              </div>
+              <span class="flow-html-orch-arrow">→</span>
+              <div class="flow-html-node process">Consolidar</div>
+              <span class="flow-html-orch-arrow">→</span>
+              <div class="flow-html-output-box">DCR</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7 — DCR: INPUT → OUTPUT (documento funcional) -->
+    <section class="slide slide-light" data-slide="7">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag">Documento Funcional</span>
+          <h2 class="slide-h1">Input: <span>DCR</span> → Output: Documento HTML</h2>
+          <p class="slide-lead">El comando /documento-funcional toma un DCR existente y genera el documento funcional presentable al cliente.</p>
+        </div>
+        <div class="dcr-io-layout slide-content-anim">
+          <div class="dcr-io-node stagger-item">
+            <div class="dcr-io-box input">
+              <span class="dcr-io-icon">📄</span>
+              <span class="dcr-io-title">DCR.md</span>
+              <span class="dcr-io-sub">Documento de Cambio Requerido</span>
+            </div>
+            <span class="arch-label">INPUT</span>
+          </div>
+          <div class="dcr-io-arrow">
+            <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
+              <line x1="0" y1="12" x2="36" y2="12" stroke="#636ACE" stroke-width="2" stroke-dasharray="4 3"/>
+              <polygon points="36,6 48,12 36,18" fill="#636ACE"/>
+            </svg>
+          </div>
+          <div class="dcr-io-node stagger-item">
+            <div class="dcr-io-box process">
+              <span class="dcr-io-icon">⚙️</span>
+              <span class="dcr-io-title">documento-funcional</span>
+              <span class="dcr-io-sub">Skill: DCR → JSON</span>
+            </div>
+            <span class="arch-label" style="color:#fff;">PROCESO</span>
+          </div>
+          <div class="dcr-io-arrow">
+            <svg width="48" height="24" viewBox="0 0 48 24" fill="none">
+              <line x1="0" y1="12" x2="36" y2="12" stroke="#FDB022" stroke-width="2" stroke-dasharray="4 3"/>
+              <polygon points="36,6 48,12 36,18" fill="#FDB022"/>
+            </svg>
+          </div>
+          <div class="dcr-io-node stagger-item">
+            <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+              <div class="dcr-io-box output">
+                <span class="dcr-io-icon">📋</span>
+                <span class="dcr-io-title">documento-funcional.html</span>
+              </div>
+              <div class="dcr-io-box output">
+                <span class="dcr-io-icon">📦</span>
+                <span class="dcr-io-title">JSON (datos)</span>
+              </div>
+            </div>
+            <span class="arch-label">OUTPUT</span>
+          </div>
+        </div>
+        <div class="dcr-io-note stagger-item">
+          <p><strong>Comando:</strong> <code>/documento-funcional @DCR-{ticket}.md</code></p>
+          <p>Mapea DCR a JSON según schema, aplica reglas de redacción para cliente y produce HTML autocontenido exportable a PDF.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8 — OUTPUTS: LOS DOS ARCHIVOS QUE GENERA EL FLUJO -->
+    <section class="slide slide-white" data-slide="8">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag success">Outputs</span>
+          <h2 class="slide-h1">Los <span>archivos</span> que genera el flujo</h2>
+          <p class="slide-lead">El sistema produce dos artefactos principales: el DCR para desarrollo y el documento funcional para el cliente.</p>
+        </div>
+        <div class="outputs-layout slide-content-anim">
+
+          <!-- OUTPUT 1: DCR -->
+          <div class="output-card stagger-item">
+            <div class="output-card-header excel">
+              <span class="output-card-icon">📄</span>
+              <div class="output-card-title">DCR-{ticket}.md</div>
+              <div class="output-card-sub">Documento de Cambio Requerido — Especificación técnica para desarrollo</div>
+            </div>
+            <div class="output-card-body">
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Resumen ejecutivo, descripción funcional y flujo principal</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Precondiciones, parametría y funcionalidades de apoyo</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Especificaciones técnicas: endpoints, APIs, mapeo de datos</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Especificaciones de interfaz y reglas de visualización</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Reglas de negocio y criterios de aceptación (RN, CF, CI, CU)</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Diagramas Mermaid para flujos y secuencias</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Precondiciones de test para QA</span>
+              </div>
+            </div>
+            <div class="output-card-footer">
+              <span class="output-format-tag">📄 Markdown</span>
+              &nbsp;
+              <span class="output-format-tag">/analisis</span>
+            </div>
+          </div>
+
+          <!-- OUTPUT 2: DOCUMENTO FUNCIONAL -->
+          <div class="output-card stagger-item">
+            <div class="output-card-header java">
+              <span class="output-card-icon">📋</span>
+              <div class="output-card-title">documento-funcional-{ticket}.html</div>
+              <div class="output-card-sub">Documento presentable al cliente — HTML autocontenido, exportable a PDF</div>
+            </div>
+            <div class="output-card-body">
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Contenido adaptado a lenguaje de cliente (sin jerga técnica)</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Estructura profesional con plantilla corporativa</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Diagramas Mermaid renderizados en el HTML</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Secciones: Resumen, Flujo, Precondiciones, Especificaciones</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Reglas de negocio y criterios de aceptación</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Listo para presentar al cliente o stakeholder</span>
+              </div>
+              <div class="output-feature">
+                <div class="output-feature-check">✓</div>
+                <span>Exportable a PDF para distribución</span>
+              </div>
+            </div>
+            <div class="output-card-footer">
+              <span class="output-format-tag">📋 HTML</span>
+              &nbsp;
+              <span class="output-format-tag">/documento-funcional</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="output-example stagger-item">
+          <div style="font-size:12px;font-weight:600;color:var(--grey-600);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.08em;">Ejemplo de documento funcional generado</div>
+          <a href="NPA-283-documento-funcional.html" target="_blank" rel="noopener">
+            <span>📋</span>
+            NPA-283 — Implementación de correlationId para rastreo con DataDog
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9 — NUEVOS PROCESOS E HITOS A EVALUAR -->
+    <section class="slide slide-light" data-slide="9">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag purple">Roadmap</span>
+          <h2 class="slide-h1">Nuevos procesos e <span>hitos a evaluar</span></h2>
+        </div>
+        <div class="hitos-single-col slide-content-anim">
+          <div class="hito-item stagger-item">
+            <span class="hito-icon">🔄</span>
+            <div>
+              <div class="hito-title">Flujo N8N + Jira</div>
+              <div class="hito-desc">Análisis automático al cambiar ticket a EN ANÁLISIS; dudas como nota interna.</div>
+            </div>
+          </div>
+          <div class="hito-item stagger-item">
+            <span class="hito-icon">⚖️</span>
+            <div>
+              <div class="hito-title">Comparación ReglasNegocios vs RevisorCodigo</div>
+              <div class="hito-desc">Actualizar descripción ampliada de políticas comerciales (tooltip).</div>
+            </div>
+          </div>
+          <div class="hito-item stagger-item">
+            <span class="hito-icon">📦</span>
+            <div>
+              <div class="hito-title">Repositorio Gitea de requerimientos</div>
+              <div class="hito-desc">Subida automática de DCR y documento funcional al finalizar.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 10 — RECOLECCIÓN Y ORGANIZACIÓN -->
+    <section class="slide slide-white" data-slide="10">
+      <div class="slide-inner">
+        <div class="slide-header">
+          <span class="slide-tag">Cómo usar</span>
+          <h2 class="slide-h1">Recolección y <span>organización</span> del material</h2>
+          <p class="slide-lead">Antes de ejecutar /analisis, reunir todo el material de relevamiento en una carpeta.</p>
+        </div>
+        <div class="solution-layout slide-content-anim">
+          <div class="solution-left">
+            <div class="pillar stagger-item">
+              <div class="pillar-icon" style="background:var(--brand-blue-100);">📋</div>
+              <div class="pillar-text">
+                <h4>Material a reunir</h4>
+                <p>Minutas de reuniones, documentos de propuestas, requerimiento formal, apuntes y notas del relevamiento.</p>
+              </div>
+            </div>
+            <div class="pillar stagger-item">
+              <div class="pillar-icon" style="background:var(--brand-purple-100);">📁</div>
+              <div class="pillar-text">
+                <h4>Organizar en carpeta</h4>
+                <p>Crear carpeta con nombre del ticket (ej: NPA-283). Incluir minuta-*.txt, message.msg, requerimiento.md, apuntes-*.txt.</p>
+              </div>
+            </div>
+            <div class="pillar stagger-item">
+              <div class="pillar-icon" style="background:var(--success-100);">▶️</div>
+              <div class="pillar-text">
+                <h4>Ejecutar /analisis</h4>
+                <p><code>/analisis docs/requerimientos/NPA-283</code> — Valida, genera DCR y opcionalmente /documento-funcional.</p>
+              </div>
+            </div>
+          </div>
+          <div class="solution-visual">
+            <div class="solution-stat-card">
+              <div class="solution-stat-number">2</div>
+              <div class="solution-stat-label">Comandos principales</div>
+            </div>
+            <div class="solution-stats-row">
+              <div class="solution-mini-stat">
+                <div class="solution-mini-number">/analisis</div>
+                <div class="solution-mini-label">DCR desde relevamiento</div>
+              </div>
+              <div class="solution-mini-stat">
+                <div class="solution-mini-number">/documento-funcional</div>
+                <div class="solution-mini-label">HTML para cliente</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 11 — CIERRE -->
+    <section class="slide slide-gradient" data-slide="11">
+      <div class="cover-bg-circles">
+        <div class="cover-circle cover-circle-1"></div>
+        <div class="cover-circle cover-circle-2"></div>
+      </div>
+      <div class="closing-content">
+        <span class="closing-icon">📄</span>
+        <h2 class="closing-title">Análisis Funcional<br/>asistido por IA</h2>
+        <p class="closing-sub">
+          Desde material de relevamiento hasta DCR y documento funcional presentable al cliente. División Informática incorpora IA para potenciar el proceso de análisis funcional en Loan Software.
+        </p>
+        <a href="#" class="closing-cta" onclick="return false;">
+          ✨ &nbsp; División Informática · Loan Software · 2026
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─────────────────── NAVIGATION ─────────────────── -->
+  <nav class="pres-nav">
+    <button class="nav-btn" id="prevBtn" disabled title="Anterior (←)">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M10.5 2L5 8l5.5 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="nav-dots" id="navDots"></div>
+    <button class="nav-btn" id="nextBtn" title="Siguiente (→)">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+        <path d="M5.5 2L11 8l-5.5 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </nav>
+
+  <div class="keyboard-hint">← → para navegar · F para pantalla completa</div>
+
+</div>
+
+<script src="reporte_proyecto_ia.js"></script>
+</body>
+</html>
