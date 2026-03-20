@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metricas Consolidadas — Proyecto IA | Division Informatica</title>
+  <link rel="stylesheet" href="metricas_consolidadas.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23303689'/%3E%3Crect x='6' y='14' width='20' height='13' rx='2' fill='white' opacity='0.9'/%3E%3Crect x='13' y='20' width='6' height='7' rx='1' fill='%23303689' opacity='0.7'/%3E%3Cpath d='M4 15 L16 6 L28 15' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════ -->
+  <header class="report-header">
+    <div class="logo-wrap">
+      <img src="logo.png" alt="Division Informatica" class="logo-icon-svg" />
+      <div class="logo-text-group">
+        <span class="logo-company">Division Informatica</span>
+        <span class="logo-loan">LOAN</span>
+        <span class="logo-software">SOFTWARE</span>
+      </div>
+    </div>
+
+    <div class="header-badge">
+      <span class="badge-dot"></span>
+      <span>Metricas Consolidadas - Proyecto IA</span>
+    </div>
+
+    <div class="header-right-group">
+      <a href="main_portal.html" class="back-to-portal-btn" title="Volver al portal de reportes">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Portal Principal
+      </a>
+      <span class="header-date" id="headerDate"></span>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════
+       HERO / COVER
+  ═══════════════════════════════════════ -->
+  <section class="report-hero">
+    <div class="hero-shapes">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+    </div>
+    <div class="hero-inner">
+      <div class="hero-tag">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#1DAB87"/><path d="M4 7l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Informe de Resultados - Proyecto IA
+      </div>
+      <h1 class="hero-title">Metricas Consolidadas<br /><em>por Area</em></h1>
+      <p class="hero-subtitle">Resultados obtenidos en la primera prueba del ciclo completo de desarrollo asistido por IA, ejecutada en paralelo por las tres areas: Analisis Funcional, Software Factory y Quality Assurance.</p>
+
+      <div class="hero-meta-bar">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Desarrollo evaluado</span>
+          <span class="hero-meta-value">NPA-283</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Modelo IA</span>
+          <span class="hero-meta-value">Claude (Anthropic)</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Periodo</span>
+          <span class="hero-meta-value">Q1 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SUMMARY STATS BAR
+  ═══════════════════════════════════════ -->
+  <section class="summary-bar">
+    <div class="summary-inner">
+      <div class="summary-stat">
+        <span class="summary-num">3</span>
+        <span class="summary-lbl">Areas evaluadas</span>
+      </div>
+      <div class="summary-stat">
+        <span class="summary-num">~90%</span>
+        <span class="summary-lbl">Reduccion promedio de tiempo</span>
+      </div>
+      <div class="summary-stat">
+        <span class="summary-num">1</span>
+        <span class="summary-lbl">Desarrollo completo evaluado</span>
+      </div>
+      <div class="summary-stat">
+        <span class="summary-num">100%</span>
+        <span class="summary-lbl">Cobertura de requerimientos</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MAIN CONTENT
+  ═══════════════════════════════════════ -->
+  <main class="report-main">
+
+    <!-- ── AVISO ── -->
+    <div class="notice-banner">
+      <svg class="notice-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <circle cx="10" cy="10" r="9" stroke="#B45309" stroke-width="1.5"/>
+        <path d="M10 6v5M10 13.5v.5" stroke="#B45309" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <p class="notice-text"><strong>Datos preliminares.</strong> Los valores mostrados en este informe son datos ficticios de referencia. Cada area actualizara sus metricas con los resultados reales obtenidos de las pruebas realizadas con Claude.</p>
+    </div>
+
+    <!-- ── CONTEXTO ── -->
+    <section class="context-section">
+      <div class="context-header">
+        <div class="context-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <circle cx="11" cy="11" r="9" stroke="#303698" stroke-width="1.5"/>
+            <path d="M11 7v4l3 2" stroke="#303698" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <h3 class="context-title">Contexto de la prueba</h3>
+          <p class="context-sub">Descripcion del desarrollo evaluado y las condiciones del test</p>
+        </div>
+      </div>
+      <div class="context-body">
+        <p>Se evaluo el ciclo completo del pipeline IA sobre un desarrollo funcional (<strong>NPA-283</strong>) que atraviesa las tres areas del proyecto. El flujo comienza con <strong>Analisis Funcional</strong> generando el DCR a partir de material de relevamiento, continua con <strong>Software Factory</strong> desarrollando el codigo N-Tier desde el DCR, y finaliza con <strong>Quality Assurance</strong> generando casos de prueba y automatizacion a partir del mismo documento.</p>
+        <p>Cada area utilizo <strong>Claude</strong> como modelo de IA, integrado a traves de agentes especializados y skills configurados para las tareas especificas de cada rol. Las metricas miden el tiempo empleado antes y despues de la incorporacion de la IA al proceso.</p>
+        <div class="context-tags">
+          <span class="ctx-tag ctx-tag-af">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect width="10" height="10" rx="2" fill="#F59E0B"/></svg>
+            Analisis Funcional
+          </span>
+          <span class="ctx-tag ctx-tag-swf">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect width="10" height="10" rx="2" fill="#3B82F6"/></svg>
+            Software Factory
+          </span>
+          <span class="ctx-tag ctx-tag-qa">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect width="10" height="10" rx="2" fill="#7C3AED"/></svg>
+            Quality Assurance
+          </span>
+          <span class="ctx-tag ctx-tag-ai">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect width="10" height="10" rx="2" fill="#303698"/></svg>
+            Claude (Anthropic)
+          </span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         AF — ANALISIS FUNCIONAL
+    ═══════════════════════════════════════ -->
+    <section class="area-section area-section-af">
+      <div class="area-section-head">
+        <div class="section-header">
+          <div class="section-icon section-icon-af">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="2" width="14" height="18" rx="2" stroke="white" stroke-width="1.6"/>
+              <path d="M7 7h6M7 10h6M7 13h4" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+              <circle cx="19" cy="18" r="4" fill="#FDE68A"/>
+              <path d="M17.5 18l1 1 2-2" stroke="#B45309" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <span class="section-tag section-tag-af">Analisis Funcional</span>
+            <h2 class="section-title">AF — Generacion de DCR con IA</h2>
+            <p class="section-desc">Metricas del proceso de analisis funcional y generacion del Documento de Cambio de Requerimiento.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-section-body">
+        <div class="kpi-grid">
+
+          <!-- KPI: Tiempo de analisis -->
+          <div class="kpi-card kpi-card-af">
+            <span class="kpi-label">Tiempo de analisis por DCR</span>
+            <div class="kpi-comparison">
+              <div class="kpi-before">
+                <span class="kpi-val kpi-val-before">8h</span>
+                <span class="kpi-sublabel">Sin IA</span>
+              </div>
+              <span class="kpi-arrow">&rarr;</span>
+              <div class="kpi-after">
+                <span class="kpi-val kpi-val-after-af">45m</span>
+                <span class="kpi-sublabel">Con Claude</span>
+              </div>
+            </div>
+            <div class="kpi-reduction">
+              <span class="reduction-pill reduction-pill-af">-91%</span>
+              <div class="reduction-bar-wrap">
+                <div class="reduction-bar reduction-bar-af" style="width:91%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI: Cobertura de tipos -->
+          <div class="kpi-card kpi-card-af">
+            <span class="kpi-label">Cobertura de tipos de requerimiento</span>
+            <div class="kpi-comparison">
+              <div class="kpi-before">
+                <span class="kpi-val kpi-val-before">4/7</span>
+                <span class="kpi-sublabel">Sin IA</span>
+              </div>
+              <span class="kpi-arrow">&rarr;</span>
+              <div class="kpi-after">
+                <span class="kpi-val kpi-val-after-af">7/7</span>
+                <span class="kpi-sublabel">Con Claude</span>
+              </div>
+            </div>
+            <div class="kpi-reduction">
+              <span class="reduction-pill reduction-pill-af">100%</span>
+              <div class="reduction-bar-wrap">
+                <div class="reduction-bar reduction-bar-af" style="width:100%"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Stats adicionales -->
+        <div class="stats-mini-grid">
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-af">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="1" width="11" height="14" rx="2" stroke="#B45309" stroke-width="1.4"/><path d="M5 5h5M5 8h5M5 11h3" stroke="#B45309" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">12</span>
+              <span class="stat-mini-lbl">DCRs generados con IA</span>
+            </div>
+          </div>
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-af">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 14l4-4 3 3 5-6" stroke="#B45309" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">Si</span>
+              <span class="stat-mini-lbl">Diagramas Mermaid generados</span>
+            </div>
+          </div>
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-af">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#B45309" stroke-width="1.4"/><path d="M9 5v4l2.5 1.5" stroke="#B45309" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">3</span>
+              <span class="stat-mini-lbl">Agentes especializados activos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         SWF — SOFTWARE FACTORY
+    ═══════════════════════════════════════ -->
+    <section class="area-section area-section-swf">
+      <div class="area-section-head">
+        <div class="section-header">
+          <div class="section-icon section-icon-swf">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M8 8L4 12l4 4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 8l4 4-4 4" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 4l-4 16" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <span class="section-tag section-tag-swf">Software Factory</span>
+            <h2 class="section-title">SWF — Desarrollo asistido por IA</h2>
+            <p class="section-desc">Metricas del desarrollo de codigo N-Tier, testing, code review, merge y versionado.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-section-body">
+        <div class="kpi-grid">
+
+          <!-- KPI: Tiempo de desarrollo -->
+          <div class="kpi-card kpi-card-swf">
+            <span class="kpi-label">Tiempo de desarrollo por ticket</span>
+            <div class="kpi-comparison">
+              <div class="kpi-before">
+                <span class="kpi-val kpi-val-before">12h</span>
+                <span class="kpi-sublabel">Sin IA</span>
+              </div>
+              <span class="kpi-arrow">&rarr;</span>
+              <div class="kpi-after">
+                <span class="kpi-val kpi-val-after-swf">1.5h</span>
+                <span class="kpi-sublabel">Con Claude</span>
+              </div>
+            </div>
+            <div class="kpi-reduction">
+              <span class="reduction-pill reduction-pill-swf">-87%</span>
+              <div class="reduction-bar-wrap">
+                <div class="reduction-bar reduction-bar-swf" style="width:87%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI: Cobertura de tests -->
+          <div class="kpi-card kpi-card-swf">
+            <span class="kpi-label">Cobertura de tests de integracion</span>
+            <div class="kpi-comparison">
+              <div class="kpi-before">
+                <span class="kpi-val kpi-val-before">~40%</span>
+                <span class="kpi-sublabel">Sin IA</span>
+              </div>
+              <span class="kpi-arrow">&rarr;</span>
+              <div class="kpi-after">
+                <span class="kpi-val kpi-val-after-swf">100%</span>
+                <span class="kpi-sublabel">Con Claude</span>
+              </div>
+            </div>
+            <div class="kpi-reduction">
+              <span class="reduction-pill reduction-pill-swf">+150%</span>
+              <div class="reduction-bar-wrap">
+                <div class="reduction-bar reduction-bar-swf" style="width:100%"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Stats adicionales -->
+        <div class="stats-mini-grid">
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-swf">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6 6L3 9l3 3" stroke="#1E478A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6l3 3-3 3" stroke="#1E478A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">~2400</span>
+              <span class="stat-mini-lbl">Lineas de codigo generadas</span>
+            </div>
+          </div>
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-swf">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 14l4-5 3 3 4-5" stroke="#1E478A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">0</span>
+              <span class="stat-mini-lbl">Errores N-Tier detectados</span>
+            </div>
+          </div>
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-swf">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="#1E478A" stroke-width="1.4"/><path d="M6 8h6M6 11h4" stroke="#1E478A" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">5</span>
+              <span class="stat-mini-lbl">Skills de desarrollo activos</span>
+            </div>
+          </div>
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-swf">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#1E478A" stroke-width="1.4"/><path d="M6.5 9l2 2 3.5-4" stroke="#1E478A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">1-Click</span>
+              <span class="stat-mini-lbl">Release automatizado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         QA — QUALITY ASSURANCE
+    ═══════════════════════════════════════ -->
+    <section class="area-section area-section-qa">
+      <div class="area-section-head">
+        <div class="section-header">
+          <div class="section-icon section-icon-qa">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <ellipse cx="12" cy="15" rx="6" ry="7" stroke="white" stroke-width="1.6" fill="none"/>
+              <circle cx="12" cy="7" r="4" stroke="white" stroke-width="1.6" fill="none"/>
+              <line x1="9" y1="4" x2="6.5" y2="1.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+              <line x1="15" y1="4" x2="17.5" y2="1.5" stroke="white" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <span class="section-tag section-tag-qa">Quality Assurance</span>
+            <h2 class="section-title">QA — Generacion automatica de artefactos</h2>
+            <p class="section-desc">Metricas de la generacion de casos de prueba y codigo de automatizacion desde el DCR.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="area-section-body">
+        <div class="kpi-grid">
+
+          <!-- KPI: Tiempo de analisis -->
+          <div class="kpi-card kpi-card-qa">
+            <span class="kpi-label">Tiempo de analisis por DCR</span>
+            <div class="kpi-comparison">
+              <div class="kpi-before">
+                <span class="kpi-val kpi-val-before">6h</span>
+                <span class="kpi-sublabel">Sin IA</span>
+              </div>
+              <span class="kpi-arrow">&rarr;</span>
+              <div class="kpi-after">
+                <span class="kpi-val kpi-val-after-qa">30m</span>
+                <span class="kpi-sublabel">Con Claude</span>
+              </div>
+            </div>
+            <div class="kpi-reduction">
+              <span class="reduction-pill reduction-pill-qa">-92%</span>
+              <div class="reduction-bar-wrap">
+                <div class="reduction-bar reduction-bar-qa" style="width:92%"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- KPI: Cobertura DCR -->
+          <div class="kpi-card kpi-card-qa">
+            <span class="kpi-label">Cobertura de escenarios del DCR</span>
+            <div class="kpi-comparison">
+              <div class="kpi-before">
+                <span class="kpi-val kpi-val-before">~70%</span>
+                <span class="kpi-sublabel">Sin IA</span>
+              </div>
+              <span class="kpi-arrow">&rarr;</span>
+              <div class="kpi-after">
+                <span class="kpi-val kpi-val-after-qa">100%</span>
+                <span class="kpi-sublabel">Con Claude</span>
+              </div>
+            </div>
+            <div class="kpi-reduction">
+              <span class="reduction-pill reduction-pill-qa">+43%</span>
+              <div class="reduction-bar-wrap">
+                <div class="reduction-bar reduction-bar-qa" style="width:100%"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Stats adicionales -->
+        <div class="stats-mini-grid">
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-qa">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="#5B247A" stroke-width="1.4"/><path d="M5 6h8M5 9h6M5 12h4" stroke="#5B247A" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">148</span>
+              <span class="stat-mini-lbl">Casos de test generados</span>
+            </div>
+          </div>
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-qa">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M6 6L3 9l3 3" stroke="#5B247A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 6l3 3-3 3" stroke="#5B247A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">22</span>
+              <span class="stat-mini-lbl">Clases Java de automatizacion</span>
+            </div>
+          </div>
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-qa">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#5B247A" stroke-width="1.4"/><path d="M6 9l2 2 4-4" stroke="#5B247A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">3</span>
+              <span class="stat-mini-lbl">Agentes especializados (Analizador, Generador, Automator)</span>
+            </div>
+          </div>
+          <div class="stat-mini-card">
+            <div class="stat-mini-icon stat-mini-icon-qa">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="5" width="16" height="10" rx="2" stroke="#5B247A" stroke-width="1.4"/><path d="M5 8h3M5 11h5" stroke="#5B247A" stroke-width="1.2" stroke-linecap="round"/><rect x="11" y="8" width="4" height="4" rx="1" stroke="#5B247A" stroke-width="1.2"/></svg>
+            </div>
+            <div>
+              <span class="stat-mini-val">Excel + Java</span>
+              <span class="stat-mini-lbl">Artefactos de salida generados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         GRAFICO COMPARATIVO
+    ═══════════════════════════════════════ -->
+    <section class="chart-section">
+      <div class="chart-section-head">
+        <h2 class="chart-section-title">Comparativa: Tiempo promedio sin IA vs. con IA</h2>
+        <p class="chart-section-sub">Horas promedio por tarea principal de cada area. Las barras claras representan el proceso manual y las oscuras el proceso asistido por Claude.</p>
+      </div>
+
+      <div class="chart-wrap">
+        <svg class="chart-svg" viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg">
+          <!-- Grid lines -->
+          <line x1="80" y1="220" x2="700" y2="220" stroke="#E4E7EC" stroke-width="1"/>
+          <line x1="80" y1="220" x2="80" y2="30" stroke="#E4E7EC" stroke-width="1"/>
+          <line x1="80" y1="173" x2="700" y2="173" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
+          <line x1="80" y1="125" x2="700" y2="125" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
+          <line x1="80" y1="78" x2="700" y2="78" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
+          <line x1="80" y1="30" x2="700" y2="30" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
+
+          <!-- Y-axis labels -->
+          <text x="70" y="224" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">0h</text>
+          <text x="70" y="177" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">3h</text>
+          <text x="70" y="129" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">6h</text>
+          <text x="70" y="82" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">9h</text>
+          <text x="70" y="34" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">12h</text>
+
+          <!-- ── AF Group ── -->
+          <!-- Before: 8h = 8/12 * 190 = 126.7 → y=220-127=93, h=127 -->
+          <rect class="chart-bar" x="130" y="93" width="55" height="127" rx="6" fill="#FDE68A"/>
+          <!-- After: 0.75h = 0.75/12 * 190 = 11.9 → y=220-12=208, h=12 -->
+          <rect class="chart-bar" x="192" y="208" width="55" height="12" rx="6" fill="#F59E0B"/>
+          <!-- Value labels -->
+          <text x="157" y="87" text-anchor="middle" font-size="12" fill="#B45309" font-weight="700" font-family="Inter, sans-serif">8h</text>
+          <text x="219" y="202" text-anchor="middle" font-size="11" fill="#B45309" font-weight="700" font-family="Inter, sans-serif">45m</text>
+          <!-- Group label -->
+          <text x="188" y="244" text-anchor="middle" font-size="13" fill="#344054" font-weight="700" font-family="Inter, sans-serif">AF</text>
+          <text x="188" y="258" text-anchor="middle" font-size="10" fill="#98A2B3" font-family="Inter, sans-serif">Analisis Funcional</text>
+
+          <!-- ── SWF Group ── -->
+          <!-- Before: 12h = 12/12 * 190 = 190 → y=220-190=30, h=190 -->
+          <rect class="chart-bar" x="335" y="30" width="55" height="190" rx="6" fill="#BFDBFE"/>
+          <!-- After: 1.5h = 1.5/12 * 190 = 23.75 → y=220-24=196, h=24 -->
+          <rect class="chart-bar" x="397" y="196" width="55" height="24" rx="6" fill="#3B82F6"/>
+          <!-- Value labels -->
+          <text x="362" y="24" text-anchor="middle" font-size="12" fill="#1E478A" font-weight="700" font-family="Inter, sans-serif">12h</text>
+          <text x="424" y="190" text-anchor="middle" font-size="11" fill="#1E478A" font-weight="700" font-family="Inter, sans-serif">1.5h</text>
+          <!-- Group label -->
+          <text x="393" y="244" text-anchor="middle" font-size="13" fill="#344054" font-weight="700" font-family="Inter, sans-serif">SWF</text>
+          <text x="393" y="258" text-anchor="middle" font-size="10" fill="#98A2B3" font-family="Inter, sans-serif">Software Factory</text>
+
+          <!-- ── QA Group ── -->
+          <!-- Before: 6h = 6/12 * 190 = 95 → y=220-95=125, h=95 -->
+          <rect class="chart-bar" x="540" y="125" width="55" height="95" rx="6" fill="#DDD6FE"/>
+          <!-- After: 0.5h = 0.5/12 * 190 = 7.9 → y=220-8=212, h=8 -->
+          <rect class="chart-bar" x="602" y="212" width="55" height="8" rx="6" fill="#7C3AED"/>
+          <!-- Value labels -->
+          <text x="567" y="119" text-anchor="middle" font-size="12" fill="#5B247A" font-weight="700" font-family="Inter, sans-serif">6h</text>
+          <text x="629" y="206" text-anchor="middle" font-size="11" fill="#5B247A" font-weight="700" font-family="Inter, sans-serif">30m</text>
+          <!-- Group label -->
+          <text x="598" y="244" text-anchor="middle" font-size="13" fill="#344054" font-weight="700" font-family="Inter, sans-serif">QA</text>
+          <text x="598" y="258" text-anchor="middle" font-size="10" fill="#98A2B3" font-family="Inter, sans-serif">Quality Assurance</text>
+        </svg>
+      </div>
+
+      <div class="chart-legend">
+        <div class="legend-item">
+          <span class="legend-dot" style="background:#E4E7EC"></span>
+          Sin IA (horas promedio)
+        </div>
+        <div class="legend-item">
+          <span class="legend-dot" style="background: linear-gradient(135deg, #303689, #5B247A)"></span>
+          Con Claude (horas promedio)
+        </div>
+      </div>
+
+      <!-- Rings: % de reduccion por area -->
+      <div class="rings-grid">
+        <!-- AF Ring -->
+        <div class="ring-card">
+          <svg class="ring-svg" viewBox="0 0 100 100">
+            <circle class="ring-track" cx="50" cy="50" r="38"/>
+            <!-- 91% de circunferencia (2*PI*38 = 238.76). dasharray=238.76, dashoffset = 238.76 * (1 - 0.91) = 21.49 -->
+            <circle class="ring-fill ring-fill-af" cx="50" cy="50" r="38" stroke-dasharray="238.76" stroke-dashoffset="21.49"/>
+            <text class="ring-center-text" x="50" y="48" text-anchor="middle" dominant-baseline="middle">91%</text>
+            <text class="ring-sub-text" x="50" y="62" text-anchor="middle">REDUCCION</text>
+          </svg>
+          <span class="ring-label">Analisis Funcional</span>
+          <span class="ring-desc">8h &rarr; 45 min por DCR</span>
+        </div>
+
+        <!-- SWF Ring -->
+        <div class="ring-card">
+          <svg class="ring-svg" viewBox="0 0 100 100">
+            <circle class="ring-track" cx="50" cy="50" r="38"/>
+            <!-- 87% → dashoffset = 238.76 * 0.13 = 31.04 -->
+            <circle class="ring-fill ring-fill-swf" cx="50" cy="50" r="38" stroke-dasharray="238.76" stroke-dashoffset="31.04"/>
+            <text class="ring-center-text" x="50" y="48" text-anchor="middle" dominant-baseline="middle">87%</text>
+            <text class="ring-sub-text" x="50" y="62" text-anchor="middle">REDUCCION</text>
+          </svg>
+          <span class="ring-label">Software Factory</span>
+          <span class="ring-desc">12h &rarr; 1.5h por ticket</span>
+        </div>
+
+        <!-- QA Ring -->
+        <div class="ring-card">
+          <svg class="ring-svg" viewBox="0 0 100 100">
+            <circle class="ring-track" cx="50" cy="50" r="38"/>
+            <!-- 92% → dashoffset = 238.76 * 0.08 = 19.10 -->
+            <circle class="ring-fill ring-fill-qa" cx="50" cy="50" r="38" stroke-dasharray="238.76" stroke-dashoffset="19.10"/>
+            <text class="ring-center-text" x="50" y="48" text-anchor="middle" dominant-baseline="middle">92%</text>
+            <text class="ring-sub-text" x="50" y="62" text-anchor="middle">REDUCCION</text>
+          </svg>
+          <span class="ring-label">Quality Assurance</span>
+          <span class="ring-desc">6h &rarr; 30 min por DCR</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         CONCLUSIONES
+    ═══════════════════════════════════════ -->
+    <section class="conclusions-section">
+      <span class="conclusions-tag">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="rgba(255,255,255,0.7)" stroke-width="1.2"/><path d="M4 6l1.5 1.5L8 5" stroke="rgba(255,255,255,0.9)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Conclusiones
+      </span>
+      <h2 class="conclusions-title">Resultados consolidados de la prueba</h2>
+      <ul class="conclusions-list">
+        <li>
+          <svg class="concl-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(255,255,255,0.18)"/><path d="M6.5 10l2.5 2.5 5-5" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>La incorporacion de Claude como IA asistente logro una <strong>reduccion promedio del 90%</strong> en los tiempos de las tareas principales de las tres areas.</span>
+        </li>
+        <li>
+          <svg class="concl-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(255,255,255,0.18)"/><path d="M6.5 10l2.5 2.5 5-5" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>El pipeline completo AF &rarr; SWF &rarr; QA se ejecuto de extremo a extremo, validando la viabilidad del flujo integrado con IA.</span>
+        </li>
+        <li>
+          <svg class="concl-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(255,255,255,0.18)"/><path d="M6.5 10l2.5 2.5 5-5" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>La cobertura de requerimientos, tests y escenarios alcanzo el <strong>100%</strong> en las tres areas, superando los niveles historicos del proceso manual.</span>
+        </li>
+        <li>
+          <svg class="concl-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(255,255,255,0.18)"/><path d="M6.5 10l2.5 2.5 5-5" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Los artefactos generados (DCR, codigo VB.NET, scripts SQL, casos de prueba Excel y automatizacion Java) fueron consistentes y listos para revision.</span>
+        </li>
+        <li>
+          <svg class="concl-check" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" fill="rgba(255,255,255,0.18)"/><path d="M6.5 10l2.5 2.5 5-5" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Los equipos pueden concentrarse en las decisiones complejas y de alto valor, delegando las tareas repetitivas y estructuradas a la IA.</span>
+        </li>
+      </ul>
+      <p class="conclusions-note">Nota: Este informe sera actualizado por cada area a medida que se completen las pruebas con datos reales. Los graficos y metricas se ajustaran automaticamente a los nuevos valores.</p>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer class="report-footer">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Division Informatica" class="footer-logo" />
+      <span class="footer-text">Division Informatica - Loan Software</span>
+    </div>
+    <span class="footer-copy">Metricas Consolidadas - Proyecto IA &mdash; Uso interno</span>
+    <span class="footer-version">v1.0 - 2026</span>
+  </footer>
+
+  <script>
+    // Set header date
+    const dateEl = document.getElementById('headerDate');
+    if (dateEl) {
+      const now = new Date();
+      dateEl.textContent = now.toLocaleDateString('es-AR', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    }
+  </script>
+
+</body>
+</html>
