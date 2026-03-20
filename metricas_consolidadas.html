@@ -174,47 +174,23 @@
       <div class="area-section-body">
         <div class="kpi-grid">
 
-          <!-- KPI: Tiempo de analisis -->
-          <div class="kpi-card kpi-card-af">
-            <span class="kpi-label">Tiempo de analisis por DCR</span>
-            <div class="kpi-comparison">
-              <div class="kpi-before">
-                <span class="kpi-val kpi-val-before">8h</span>
-                <span class="kpi-sublabel">Sin IA</span>
-              </div>
-              <span class="kpi-arrow">&rarr;</span>
-              <div class="kpi-after">
-                <span class="kpi-val kpi-val-after-af">45m</span>
-                <span class="kpi-sublabel">Con Claude</span>
-              </div>
-            </div>
-            <div class="kpi-reduction">
-              <span class="reduction-pill reduction-pill-af">-91%</span>
-              <div class="reduction-bar-wrap">
-                <div class="reduction-bar reduction-bar-af" style="width:91%"></div>
-              </div>
+          <!-- KPI: Promedio de comprensión -->
+          <div class="kpi-card kpi-card-af kpi-progress-card">
+            <span class="kpi-label">Promedio de comprensión</span>
+            <span class="kpi-hint">(Líneas generadas vs. corregidas)</span>
+            <span class="kpi-val kpi-val-after-af">91,1%</span>
+            <div class="kpi-progress-track">
+              <div class="kpi-progress-fill kpi-progress-fill-af" style="width:91.1%"></div>
             </div>
           </div>
-
-          <!-- KPI: Cobertura de tipos -->
-          <div class="kpi-card kpi-card-af">
-            <span class="kpi-label">Cobertura de tipos de requerimiento</span>
-            <div class="kpi-comparison">
-              <div class="kpi-before">
-                <span class="kpi-val kpi-val-before">4/7</span>
-                <span class="kpi-sublabel">Sin IA</span>
-              </div>
-              <span class="kpi-arrow">&rarr;</span>
-              <div class="kpi-after">
-                <span class="kpi-val kpi-val-after-af">7/7</span>
-                <span class="kpi-sublabel">Con Claude</span>
-              </div>
-            </div>
-            <div class="kpi-reduction">
-              <span class="reduction-pill reduction-pill-af">100%</span>
-              <div class="reduction-bar-wrap">
-                <div class="reduction-bar reduction-bar-af" style="width:100%"></div>
-              </div>
+          
+          <!-- KPI: Promedio de horas ahorradas -->
+          <div class="kpi-card kpi-card-af kpi-progress-card">
+            <span class="kpi-label">Promedio de horas ahorradas</span>
+            <span class="kpi-hint">(Horas estimadas vs. reales)</span>
+            <span class="kpi-val kpi-val-after-af">77,6%</span>
+            <div class="kpi-progress-track">
+              <div class="kpi-progress-fill kpi-progress-fill-af" style="width:77.6%"></div>
             </div>
           </div>
 
@@ -246,7 +222,7 @@
             </div>
             <div>
               <span class="stat-mini-val">3</span>
-              <span class="stat-mini-lbl">Agentes especializados activos</span>
+              <span class="stat-mini-lbl">Agentes disponibles</span>
             </div>
           </div>
         </div>
