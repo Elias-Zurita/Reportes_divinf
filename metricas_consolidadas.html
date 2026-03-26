@@ -523,50 +523,50 @@
           <!-- Grid lines -->
           <line x1="80" y1="220" x2="700" y2="220" stroke="#E4E7EC" stroke-width="1"/>
           <line x1="80" y1="220" x2="80" y2="30" stroke="#E4E7EC" stroke-width="1"/>
-          <line x1="80" y1="173" x2="700" y2="173" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
+          <line x1="80" y1="172.5" x2="700" y2="172.5" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
           <line x1="80" y1="125" x2="700" y2="125" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
-          <line x1="80" y1="78" x2="700" y2="78" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
+          <line x1="80" y1="77.5" x2="700" y2="77.5" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
           <line x1="80" y1="30" x2="700" y2="30" stroke="#E4E7EC" stroke-width="0.8" stroke-dasharray="4,4"/>
 
-          <!-- Y-axis labels -->
+          <!-- Y-axis labels (escala 0–24h; altura útil 190px) -->
           <text x="70" y="224" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">0h</text>
-          <text x="70" y="177" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">3h</text>
-          <text x="70" y="129" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">6h</text>
-          <text x="70" y="82" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">9h</text>
-          <text x="70" y="34" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">12h</text>
+          <text x="70" y="176.5" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">6h</text>
+          <text x="70" y="129" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">12h</text>
+          <text x="70" y="81.5" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">18h</text>
+          <text x="70" y="34" text-anchor="end" font-size="11" fill="#98A2B3" font-family="Inter, sans-serif">24h</text>
 
           <!-- ── AF Group ── -->
-          <!-- Before: 8h = 8/12 * 190 = 126.7 → y=220-127=93, h=127 -->
-          <rect class="chart-bar" x="130" y="93" width="55" height="127" rx="6" fill="#FDE68A"/>
-          <!-- After: 0.75h = 0.75/12 * 190 = 11.9 → y=220-12=208, h=12 -->
-          <rect class="chart-bar" x="192" y="208" width="55" height="12" rx="6" fill="#F59E0B"/>
+          <!-- Before: 21h = 21/24 * 190 = 166.25 → y=54, h=166 -->
+          <rect class="chart-bar" x="130" y="54" width="55" height="166" rx="6" fill="#FDE68A"/>
+          <!-- After: 5h = 5/24 * 190 = 39.58 → y=180, h=40 -->
+          <rect class="chart-bar" x="192" y="180" width="55" height="40" rx="6" fill="#F59E0B"/>
           <!-- Value labels -->
-          <text x="157" y="87" text-anchor="middle" font-size="12" fill="#B45309" font-weight="700" font-family="Inter, sans-serif">8h</text>
-          <text x="219" y="202" text-anchor="middle" font-size="11" fill="#B45309" font-weight="700" font-family="Inter, sans-serif">45m</text>
+          <text x="157" y="48" text-anchor="middle" font-size="12" fill="#B45309" font-weight="700" font-family="Inter, sans-serif">21h</text>
+          <text x="219" y="174" text-anchor="middle" font-size="11" fill="#B45309" font-weight="700" font-family="Inter, sans-serif">5.5h</text>
           <!-- Group label -->
           <text x="188" y="244" text-anchor="middle" font-size="13" fill="#344054" font-weight="700" font-family="Inter, sans-serif">AF</text>
           <text x="188" y="258" text-anchor="middle" font-size="10" fill="#98A2B3" font-family="Inter, sans-serif">Analisis Funcional</text>
 
           <!-- ── SWF Group ── -->
-          <!-- Before: 12h = 12/12 * 190 = 190 → y=220-190=30, h=190 -->
-          <rect class="chart-bar" x="335" y="30" width="55" height="190" rx="6" fill="#BFDBFE"/>
-          <!-- After: 1.5h = 1.5/12 * 190 = 23.75 → y=220-24=196, h=24 -->
-          <rect class="chart-bar" x="397" y="196" width="55" height="24" rx="6" fill="#3B82F6"/>
+          <!-- Before: 12h = 12/24 * 190 = 95 → y=125, h=95 -->
+          <rect class="chart-bar" x="335" y="125" width="55" height="95" rx="6" fill="#BFDBFE"/>
+          <!-- After: 1.5h = 1.5/24 * 190 = 11.875 → y=208, h=12 -->
+          <rect class="chart-bar" x="397" y="208" width="55" height="12" rx="6" fill="#3B82F6"/>
           <!-- Value labels -->
-          <text x="362" y="24" text-anchor="middle" font-size="12" fill="#1E478A" font-weight="700" font-family="Inter, sans-serif">12h</text>
-          <text x="424" y="190" text-anchor="middle" font-size="11" fill="#1E478A" font-weight="700" font-family="Inter, sans-serif">1.5h</text>
+          <text x="362" y="119" text-anchor="middle" font-size="12" fill="#1E478A" font-weight="700" font-family="Inter, sans-serif">12h</text>
+          <text x="424" y="202" text-anchor="middle" font-size="11" fill="#1E478A" font-weight="700" font-family="Inter, sans-serif">1.5h</text>
           <!-- Group label -->
           <text x="393" y="244" text-anchor="middle" font-size="13" fill="#344054" font-weight="700" font-family="Inter, sans-serif">SWF</text>
           <text x="393" y="258" text-anchor="middle" font-size="10" fill="#98A2B3" font-family="Inter, sans-serif">Software Factory</text>
 
           <!-- ── QA Group ── -->
-          <!-- Before: 6h = 6/12 * 190 = 95 → y=220-95=125, h=95 -->
-          <rect class="chart-bar" x="540" y="125" width="55" height="95" rx="6" fill="#DDD6FE"/>
-          <!-- After: 0.5h = 0.5/12 * 190 = 7.9 → y=220-8=212, h=8 -->
-          <rect class="chart-bar" x="602" y="212" width="55" height="8" rx="6" fill="#7C3AED"/>
+          <!-- Before: 6h = 6/24 * 190 = 47.5 → y=172.5, h=48 -->
+          <rect class="chart-bar" x="540" y="172" width="55" height="48" rx="6" fill="#DDD6FE"/>
+          <!-- After: 0.5h = 0.5/24 * 190 = 3.96 → y=216, h=4 -->
+          <rect class="chart-bar" x="602" y="216" width="55" height="4" rx="6" fill="#7C3AED"/>
           <!-- Value labels -->
-          <text x="567" y="119" text-anchor="middle" font-size="12" fill="#5B247A" font-weight="700" font-family="Inter, sans-serif">6h</text>
-          <text x="629" y="206" text-anchor="middle" font-size="11" fill="#5B247A" font-weight="700" font-family="Inter, sans-serif">30m</text>
+          <text x="567" y="166" text-anchor="middle" font-size="12" fill="#5B247A" font-weight="700" font-family="Inter, sans-serif">6h</text>
+          <text x="629" y="210" text-anchor="middle" font-size="11" fill="#5B247A" font-weight="700" font-family="Inter, sans-serif">30m</text>
           <!-- Group label -->
           <text x="598" y="244" text-anchor="middle" font-size="13" fill="#344054" font-weight="700" font-family="Inter, sans-serif">QA</text>
           <text x="598" y="258" text-anchor="middle" font-size="10" fill="#98A2B3" font-family="Inter, sans-serif">Quality Assurance</text>
@@ -590,13 +590,13 @@
         <div class="ring-card">
           <svg class="ring-svg" viewBox="0 0 100 100">
             <circle class="ring-track" cx="50" cy="50" r="38"/>
-            <!-- 91% de circunferencia (2*PI*38 = 238.76). dasharray=238.76, dashoffset = 238.76 * (1 - 0.91) = 21.49 -->
-            <circle class="ring-fill ring-fill-af" cx="50" cy="50" r="38" stroke-dasharray="238.76" stroke-dashoffset="21.49"/>
-            <text class="ring-center-text" x="50" y="48" text-anchor="middle" dominant-baseline="middle">91%</text>
+            <!-- 77% (2*PI*38 = 238.76). dashoffset = 238.76 * (1 - 0.77) = 54.91 -->
+            <circle class="ring-fill ring-fill-af" cx="50" cy="50" r="38" stroke-dasharray="238.76" stroke-dashoffset="54.91"/>
+            <text class="ring-center-text" x="50" y="48" text-anchor="middle" dominant-baseline="middle">78%</text>
             <text class="ring-sub-text" x="50" y="62" text-anchor="middle">REDUCCION</text>
           </svg>
           <span class="ring-label">Analisis Funcional</span>
-          <span class="ring-desc">8h &rarr; 45 min por DCR</span>
+          <span class="ring-desc">21h &rarr; 5.5 h por análisis + DCR</span>
         </div>
 
         <!-- SWF Ring -->
