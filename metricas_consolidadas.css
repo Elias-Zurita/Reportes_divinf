@@ -332,6 +332,13 @@ body {
   color: rgba(255,255,255,0.92);
 }
 
+.hero-meta-tickets {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
 /* ── SUMMARY STATS ───────────────────────────────────── */
 .summary-bar {
   background: #fff;
@@ -437,6 +444,22 @@ body {
 
 .context-body p { margin-bottom: 10px; }
 .context-body p:last-child { margin-bottom: 0; }
+
+.context-task-list {
+  margin: 0 0 14px 0;
+  padding-left: 1.35em;
+}
+.context-task-list li {
+  margin-bottom: 8px;
+}
+.context-task-list li:last-child { margin-bottom: 0; }
+.context-task-list a {
+  color: var(--brand-blue-700);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.context-task-list a:hover { color: var(--brand-blue-800); }
 
 .context-body strong {
   color: var(--grey-900);
